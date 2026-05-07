@@ -1115,6 +1115,7 @@
   <div class="stat-pill">Contacted: <span id="contactedCount" style="color:var(--teal)">0</span></div>
   <div class="stat-pill day-pill">Day: <span id="dayLabel">1</span> <button onclick="toggleDay()" style="background:var(--teal);color:#000;border:none;border-radius:4px;font-size:9px;padding:2px 6px;cursor:pointer;font-family:'JetBrains Mono',monospace;margin-left:4px;">switch</button></div>
   <div class="stat-pill" style="cursor:pointer;" onclick="toggleSort()">Sort: <span id="sortLabel" style="color:var(--text)">Tier</span> ↕</div>
+  <div class="stat-pill" style="font-size:10px;letter-spacing:0.02em;"><span id="syncStatus"></span></div>
 </div>
 
 <!-- ═══════════════════════════════════
@@ -2252,6 +2253,8 @@
   // ── THEME ──
   const THEME_KEY = 'resonance_theme';
   const STORE_KEY = 'resonance_nysafah_contacts';
+  const SHEETS_URL = 'YOUR_APPS_SCRIPT_URL'; // paste your deployed web app URL here
+  const SHEETS_TOKEN = 'nysafah2026resonance';
 
   function applyTheme(mode) {
     const knob = document.getElementById('themeKnob');
@@ -2291,6 +2294,54 @@
     try {
       localStorage.setItem(STORE_KEY, JSON.stringify(contacts));
     } catch(e) {}
+    scheduleSheetsSync();
+  }
+
+  // ── GOOGLE SHEETS SYNC ──
+  let _syncTimer = null;
+
+  function setSyncStatus(s) {
+    const el = document.getElementById('syncStatus');
+    if (!el) return;
+    if (s === 'syncing') { el.textContent = '↑ syncing…'; el.style.color = 'var(--muted)'; }
+    else if (s === 'synced') { el.textContent = '✓ synced'; el.style.color = 'var(--teal)'; }
+    else if (s === 'error')  { el.textContent = '⚠ offline'; el.style.color = 'var(--tier1)'; }
+    else { el.textContent = ''; }
+  }
+
+  function scheduleSheetsSync() {
+    if (!SHEETS_URL || SHEETS_URL === 'YOUR_APPS_SCRIPT_URL') return;
+    clearTimeout(_syncTimer);
+    _syncTimer = setTimeout(syncToSheets, 1500);
+  }
+
+  async function syncToSheets() {
+    if (!SHEETS_URL || SHEETS_URL === 'YOUR_APPS_SCRIPT_URL') return;
+    setSyncStatus('syncing');
+    try {
+      const res = await fetch(SHEETS_URL, {
+        method: 'POST',
+        body: JSON.stringify({ token: SHEETS_TOKEN, contacts })
+      });
+      const json = await res.json();
+      if (json.error) throw new Error(json.error);
+      setSyncStatus('synced');
+      setTimeout(() => setSyncStatus('idle'), 3000);
+    } catch(e) {
+      setSyncStatus('error');
+    }
+  }
+
+  async function loadFromSheets() {
+    if (!SHEETS_URL || SHEETS_URL === 'YOUR_APPS_SCRIPT_URL') return;
+    try {
+      const res = await fetch(`${SHEETS_URL}?token=${SHEETS_TOKEN}`);
+      const json = await res.json();
+      if (json.contacts && Object.keys(json.contacts).length > 0) {
+        contacts = Object.assign({}, contacts, json.contacts);
+        try { localStorage.setItem(STORE_KEY, JSON.stringify(contacts)); } catch(e) {}
+      }
+    } catch(e) { /* silent — fall back to localStorage */ }
   }
 
   // ── TAB SWITCHING ──
@@ -2880,19 +2931,18 @@ Resonance | resonancehq.io`;
   }
 
   // ── INIT ──
-  window.addEventListener('DOMContentLoaded', () => {
-    // Apply saved theme
+  window.addEventListener('DOMContentLoaded', async () => {
     try {
       const saved = localStorage.getItem(THEME_KEY);
       applyTheme(saved === 'light' ? 'light' : 'dark');
     } catch(e) { applyTheme('dark'); }
 
-    // Restore day
     const dayEl = document.getElementById('dayLabel');
     if (dayEl) dayEl.textContent = currentDay;
 
-    loadContacts();
+    loadContacts();      // fast: local state first
     assignCardIds();
+    await loadFromSheets(); // merge sheet data (no-op if URL not set or offline)
     injectTracking();
     injectPitches();
     patchEmailButtons();
