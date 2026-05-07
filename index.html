@@ -1,0 +1,2904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resonance — NYSAFAH 2026 Conference Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem('resonance_theme')==='light'){document.documentElement.classList.add('light');}}catch(e){}</script>
+<style>
+  :root {
+    --teal: #0ABFBC;
+    --teal-dim: rgba(10,191,188,0.15);
+    --teal-glow: rgba(10,191,188,0.08);
+    --bg: #0B0F14;
+    --bg2: #111820;
+    --bg3: #1A2230;
+    --bg4: #212D3D;
+    --border: rgba(255,255,255,0.07);
+    --text: #E8EDF5;
+    --text2: #B8C8DA;
+    --muted: #8A9BB0;
+    --tier1: #FF6B6B;
+    --tier1-bg: rgba(255,107,107,0.1);
+    --tier2: #FFB347;
+    --tier2-bg: rgba(255,179,71,0.1);
+    --tier3: #6BCB77;
+    --tier3-bg: rgba(107,203,119,0.1);
+    --existing: #A78BFA;
+    --existing-bg: rgba(167,139,250,0.1);
+    --shadow: none;
+    --header-bg: linear-gradient(135deg, #0B0F14 0%, #0d1a2a 60%, #0a1f1e 100%);
+    --approach-bg: #0B0F14;
+    --input-bg: #111820;
+    --tag-key-bg: rgba(255,255,255,0.06);
+    --tag-key-color: #8A9BB0;
+    --border-strong: rgba(255,255,255,0.15);
+  }
+
+  html.light,
+  html.light body {
+    --teal: #0098A6;
+    --teal-dim: rgba(0,152,166,0.1);
+    --teal-glow: rgba(0,152,166,0.06);
+    --bg: #F0F3F7;
+    --bg2: #FFFFFF;
+    --bg3: #E8EDF4;
+    --bg4: #DDE3EC;
+    --border: rgba(0,0,0,0.09);
+    --text: #0F1923;
+    --text2: #374A5E;
+    --muted: #556070;
+    --tier1: #C83232;
+    --tier1-bg: rgba(200,50,50,0.08);
+    --tier2: #A06418;
+    --tier2-bg: rgba(160,100,24,0.08);
+    --tier3: #237A38;
+    --tier3-bg: rgba(35,122,56,0.08);
+    --existing: #5830B4;
+    --existing-bg: rgba(88,48,180,0.08);
+    --shadow: 0 1px 4px rgba(0,0,0,0.07);
+    --header-bg: linear-gradient(135deg, #ffffff 0%, #eef5f6 60%, #e4f2f2 100%);
+    --approach-bg: #EDF0F5;
+    --input-bg: #ffffff;
+    --tag-key-bg: rgba(0,0,0,0.05);
+    --tag-key-color: #556070;
+    --border-strong: rgba(0,0,0,0.15);
+    background: #F0F3F7;
+    color: #0F1923;
+  }
+
+  /* ── LIGHT MODE — explicit overrides for everything that doesn't cascade from vars ── */
+  html.light body {
+    background: #F0F3F7 !important;
+    color: #0F1923 !important;
+  }
+  html.light .header {
+    background: linear-gradient(135deg, #ffffff 0%, #eef5f6 60%, #e4f2f2 100%) !important;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+  }
+  html.light .tab-nav { background: #ffffff !important; }
+  html.light .card {
+    background: #ffffff !important;
+    border-color: rgba(0,0,0,0.08) !important;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06) !important;
+  }
+  html.light .card.rich {
+    background: linear-gradient(135deg, #ffffff 0%, rgba(0,152,166,0.03) 100%) !important;
+  }
+  html.light .card.contacted { border-color: rgba(0,152,166,0.3) !important; }
+  html.light .card:hover { background: #f8fafc !important; }
+  html.light .card-name { color: #0F1923 !important; }
+  html.light .card-org { color: #556070 !important; }
+  html.light .section-title { color: #0F1923 !important; }
+  html.light .section-count { color: #556070 !important; }
+  html.light .approach {
+    background: #EDF0F5 !important;
+    color: #2C3A4A !important;
+    border-color: rgba(0,0,0,0.07) !important;
+  }
+  html.light .approach strong { color: #0098A6 !important; }
+  html.light .search-box {
+    background: #ffffff !important;
+    color: #0F1923 !important;
+    border-color: rgba(0,0,0,0.1) !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+  }
+  html.light .search-box::placeholder { color: #8A9BB0 !important; }
+  html.light .filter-btn {
+    background: #ffffff !important;
+    border-color: rgba(0,0,0,0.1) !important;
+    color: #556070 !important;
+  }
+  html.light .filter-btn.active { background: #EDF0F5 !important; color: #0F1923 !important; }
+  html.light .stat-pill {
+    background: #ffffff !important;
+    border-color: rgba(0,0,0,0.08) !important;
+    color: #556070 !important;
+  }
+  html.light .stat-pill span { color: #0F1923 !important; }
+  html.light .btn-spoke {
+    background: #EDF0F5 !important;
+    border-color: rgba(0,0,0,0.1) !important;
+    color: #556070 !important;
+  }
+  html.light .btn-spoke.spoke {
+    background: rgba(0,152,166,0.1) !important;
+    border-color: rgba(0,152,166,0.3) !important;
+    color: #0098A6 !important;
+  }
+  html.light .action-select {
+    background: #EDF0F5 !important;
+    border-color: rgba(0,0,0,0.1) !important;
+    color: #556070 !important;
+  }
+  html.light .track-notes {
+    background: #EDF0F5 !important;
+    color: #0F1923 !important;
+    border-color: rgba(0,0,0,0.1) !important;
+  }
+  html.light .track-notes::placeholder { color: #8A9BB0 !important; }
+  html.light .track-timestamp { color: #556070 !important; }
+  html.light .tag-key {
+    background: rgba(0,0,0,0.05) !important;
+    color: #556070 !important;
+  }
+  html.light .btn-email {
+    background: #EDF0F5 !important;
+    border-color: rgba(0,0,0,0.1) !important;
+    color: #556070 !important;
+  }
+  html.light .log-card {
+    background: #ffffff !important;
+    border-color: rgba(0,152,166,0.2) !important;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06) !important;
+  }
+  html.light .log-card-name { color: #0F1923 !important; }
+  html.light .log-card-org { color: #556070 !important; }
+  html.light .log-card-notes {
+    background: #EDF0F5 !important;
+    border-color: rgba(0,0,0,0.07) !important;
+    color: #2C3A4A !important;
+  }
+  html.light .log-header-title { color: #0F1923 !important; }
+  html.light .log-empty-title { color: #0F1923 !important; }
+  html.light .log-empty-sub { color: #556070 !important; }
+  html.light .modal {
+    background: #ffffff !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15) !important;
+  }
+  html.light .modal-title { color: #0F1923 !important; }
+  html.light .modal-body {
+    background: #EDF0F5 !important;
+    color: #0F1923 !important;
+    border-color: rgba(0,0,0,0.08) !important;
+  }
+  html.light .modal-handle { background: rgba(0,0,0,0.15) !important; }
+  html.light .modal-close { color: #556070 !important; }
+  html.light .btn-export {
+    background: #EDF0F5 !important;
+    border-color: rgba(0,0,0,0.1) !important;
+    color: #0098A6 !important;
+  }
+  html.light .footer { border-top-color: rgba(0,0,0,0.08) !important; }
+  html.light .footer-text { color: #8A9BB0 !important; }
+  html.light .footer-cta { color: #0098A6 !important; }
+  html.light .header-title { color: #0F1923 !important; }
+  html.light .header-sub { color: #556070 !important; }
+  html.light .logo-text { color: #0F1923 !important; }
+  html.light .tab-btn { color: #556070 !important; }
+  html.light .tab-btn.active { color: #0098A6 !important; }
+  html.light .no-results { color: #556070 !important; }
+  html.light .theme-toggle {
+    background: rgba(0,152,166,0.1) !important;
+    border-color: rgba(0,152,166,0.2) !important;
+  }
+
+  /* ── THEME TOGGLE BUTTON ── */
+  .theme-toggle {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    width: 52px; height: 28px;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+    transition: background 0.2s, border-color 0.2s;
+    display: flex;
+    align-items: center;
+    padding: 3px;
+  }
+
+  .theme-toggle-knob {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--muted);
+    transition: transform 0.2s, background 0.2s;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  body.light .theme-toggle {
+    background: var(--teal-dim);
+    border-color: rgba(0,152,166,0.2);
+  }
+
+  body.light .theme-toggle-knob {
+    transform: translateX(24px);
+    background: var(--teal);
+  }
+
+  /* ── RESET ── */
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color: transparent; }
+
+  html { font-size: 16px; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Instrument Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* ── HEADER — compact on mobile ── */
+  .header {
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .header-inner { max-width: 900px; margin: 0 auto; }
+
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+
+  .logo { display: flex; align-items: center; gap: 8px; }
+
+  .logo-mark {
+    width: 28px; height: 28px;
+    background: var(--teal);
+    border-radius: 7px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-size: 14px; color: #000; font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    font-family: 'Fraunces', serif;
+    font-size: 16px; font-weight: 600;
+    color: var(--text); letter-spacing: -0.3px;
+  }
+
+  .event-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; color: var(--teal);
+    background: var(--teal-dim);
+    border: 1px solid rgba(10,191,188,0.3);
+    padding: 3px 8px; border-radius: 20px;
+    letter-spacing: 0.5px; white-space: nowrap;
+  }
+
+  .header-title {
+    font-family: 'Fraunces', serif;
+    font-size: 16px; font-weight: 300;
+    letter-spacing: -0.3px; line-height: 1.2;
+    color: var(--text);
+  }
+
+  .header-title em { color: var(--teal); font-style: italic; }
+
+  .header-sub {
+    font-size: 10px; color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    margin-top: 2px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+
+  /* ── TAB NAV — full width, no overflow ── */
+  .tab-nav {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tab-nav::-webkit-scrollbar { display: none; }
+
+  .tab-btn {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 13px; font-weight: 500;
+    color: var(--muted);
+    background: none; border: none;
+    padding: 12px 16px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.15s;
+    display: flex; align-items: center; gap: 6px;
+    white-space: nowrap;
+    min-height: 44px;
+  }
+
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active { color: var(--teal); border-bottom-color: var(--teal); }
+
+  .tab-badge {
+    background: var(--teal-dim); color: var(--teal);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; padding: 2px 6px;
+    border-radius: 10px; font-weight: 500;
+  }
+
+  /* ── TAB PAGES ── */
+  .tab-page { display: none; }
+  .tab-page.active { display: block; }
+
+  /* ── SEARCH — full width, big touch target ── */
+  .search-wrap {
+    max-width: 900px;
+    margin: 12px auto 0;
+    padding: 0 16px;
+  }
+
+  .search-wrap-inner { position: relative; }
+
+  .search-box {
+    width: 100%;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 13px 16px 13px 42px;
+    color: var(--text);
+    font-size: 16px; /* 16px prevents iOS zoom */
+    font-family: 'Instrument Sans', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+
+  .search-box:focus {
+    border-color: rgba(10,191,188,0.4);
+    background: var(--bg3);
+  }
+
+  .search-icon {
+    position: absolute; left: 14px; top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted); font-size: 16px;
+    pointer-events: none;
+  }
+
+  /* ── FILTER PILLS — horizontal scroll, no wrap ── */
+  .filters {
+    max-width: 900px;
+    margin: 10px auto 0;
+    padding: 0 16px;
+    display: flex;
+    gap: 7px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+  }
+  .filters::-webkit-scrollbar { display: none; }
+
+  .filter-btn {
+    border: 1px solid var(--border);
+    background: var(--bg2);
+    color: var(--muted);
+    font-size: 12px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 500;
+    padding: 7px 13px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex; align-items: center; gap: 5px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-height: 36px;
+  }
+
+  .filter-btn .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+
+  .filter-btn.active { background: var(--bg3); color: var(--text); border-color: var(--border-strong); }
+  .filter-btn.active-t1 { border-color: var(--tier1); color: var(--tier1); background: var(--tier1-bg); }
+  .filter-btn.active-t2 { border-color: var(--tier2); color: var(--tier2); background: var(--tier2-bg); }
+  .filter-btn.active-t3 { border-color: var(--tier3); color: var(--tier3); background: var(--tier3-bg); }
+  .filter-btn.active-ex { border-color: var(--existing); color: var(--existing); background: var(--existing-bg); }
+
+  /* ── STATS BAR — compact row ── */
+  .stats-bar {
+    max-width: 900px;
+    margin: 10px auto 0;
+    padding: 0 16px;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .stats-bar::-webkit-scrollbar { display: none; }
+
+  .stat-pill {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .stat-pill span { color: var(--text); font-weight: 500; }
+
+  /* ── SECTION HEADERS ── */
+  .section-header {
+    max-width: 900px;
+    margin: 20px auto 0;
+    padding: 0 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 4px 8px; border-radius: 4px; font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .label-t1 { color: var(--tier1); background: var(--tier1-bg); border: 1px solid rgba(255,107,107,0.25); }
+  .label-t2 { color: var(--tier2); background: var(--tier2-bg); border: 1px solid rgba(255,179,71,0.25); }
+  .label-t3 { color: var(--tier3); background: var(--tier3-bg); border: 1px solid rgba(107,203,119,0.25); }
+  .label-ex { color: var(--existing); background: var(--existing-bg); border: 1px solid rgba(167,139,250,0.25); }
+
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: 14px; font-weight: 400; color: var(--text);
+  }
+
+  .section-count {
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; color: var(--muted);
+    white-space: nowrap;
+  }
+
+  /* ── CARD GRID ── */
+  .cards {
+    max-width: 900px;
+    margin: 10px auto 0;
+    padding: 0 16px;
+    display: grid;
+    gap: 8px;
+  }
+
+  /* ── PERSON CARD ── */
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 14px 14px 17px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    /* No hover transform on mobile — feels laggy */
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    border-radius: 12px 0 0 12px;
+  }
+
+  .card.tier-1::before { background: var(--tier1); }
+  .card.tier-2::before { background: var(--tier2); }
+  .card.tier-3::before { background: var(--tier3); }
+  .card.tier-ex::before { background: var(--existing); }
+  .card.rich { background: linear-gradient(135deg, var(--bg2) 0%, rgba(10,191,188,0.03) 100%); }
+  .card.contacted { border-color: rgba(10,191,188,0.3); }
+  .card.contacted .card-name::after { content: ' ✓'; color: var(--teal); font-size: 13px; }
+
+  /* ── CARD TOP — name + buttons stacked on mobile ── */
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .card-left {
+    display: flex; align-items: flex-start;
+    gap: 10px; flex: 1; min-width: 0;
+  }
+
+  .avatar {
+    width: 36px; height: 36px;
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-size: 12px; font-weight: 600;
+    flex-shrink: 0; letter-spacing: -0.5px;
+  }
+
+  .avatar-t1 { background: var(--tier1-bg); color: var(--tier1); border: 1px solid rgba(255,107,107,0.2); }
+  .avatar-t2 { background: var(--tier2-bg); color: var(--tier2); border: 1px solid rgba(255,179,71,0.2); }
+  .avatar-t3 { background: var(--tier3-bg); color: var(--tier3); border: 1px solid rgba(107,203,119,0.2); }
+  .avatar-ex { background: var(--existing-bg); color: var(--existing); border: 1px solid rgba(167,139,250,0.2); }
+
+  .card-name {
+    font-family: 'Fraunces', serif;
+    font-size: 14px; font-weight: 500;
+    color: var(--text); margin-bottom: 2px;
+    letter-spacing: -0.2px; line-height: 1.3;
+  }
+
+  .card-org { font-size: 11px; color: var(--muted); font-weight: 500; line-height: 1.3; }
+
+  /* ── CARD ACTIONS — icon-only on mobile ── */
+  .card-actions {
+    display: flex; gap: 6px;
+    flex-shrink: 0; align-items: flex-start;
+  }
+
+  .btn-li {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: #0A66C2; color: #fff;
+    width: 34px; height: 34px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+    flex-shrink: 0;
+    overflow: hidden;
+    font-size: 0; /* hides any text nodes */
+  }
+
+  .btn-li:active { opacity: 0.7; }
+  .btn-li span { display: none; }
+  .btn-li svg { width: 16px; height: 16px; fill: #fff; flex-shrink: 0; }
+
+  .btn-email {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--bg4);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    width: 34px; height: 34px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.15s;
+    flex-shrink: 0;
+  }
+
+  .btn-email:active { opacity: 0.7; }
+
+  /* ── APPROACH TEXT ── */
+  .approach {
+    background: var(--dark);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 12px;
+    color: var(--text2);
+    line-height: 1.55;
+  }
+
+  .approach strong { color: var(--teal); font-weight: 600; }
+
+  /* ── TAGS ── */
+  .card-tags {
+    display: flex; gap: 5px;
+    margin-top: 10px; flex-wrap: wrap;
+  }
+
+  .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; padding: 3px 7px;
+    border-radius: 4px; letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+
+  .tag-program { background: var(--teal-dim); color: var(--teal); }
+  .tag-demo    { background: rgba(255,107,107,0.1); color: #FF9999; }
+  .tag-awareness { background: rgba(255,179,71,0.1); color: #FFCC88; }
+  .tag-referral  { background: rgba(107,203,119,0.1); color: #8FD69A; }
+  .tag-client    { background: var(--existing-bg); color: var(--existing); }
+  .tag-key       { background: var(--tag-key-bg); color: var(--tag-key-color); }
+
+  /* ── TRACKING CONTROLS ── */
+  .track-bar {
+    margin-top: 12px;
+    display: flex; align-items: center;
+    gap: 7px; flex-wrap: wrap;
+  }
+
+  .btn-spoke {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 12px;
+    font-family: 'Instrument Sans', sans-serif; font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg3);
+    color: var(--muted);
+    cursor: pointer;
+    min-height: 38px;
+    transition: all 0.15s;
+  }
+
+  .btn-spoke:active { opacity: 0.75; }
+
+  .btn-spoke.spoke {
+    background: rgba(10,191,188,0.12);
+    border-color: var(--teal);
+    color: var(--teal);
+  }
+
+  .action-select {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 12px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    border-radius: 10px;
+    padding: 8px 10px;
+    cursor: pointer;
+    outline: none;
+    min-height: 38px;
+    flex: 1;
+    min-width: 140px;
+    -webkit-appearance: none;
+    transition: border-color 0.15s;
+  }
+
+  .action-select:focus { border-color: var(--teal); color: var(--text); }
+
+  .track-timestamp {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; color: var(--muted);
+    margin-left: auto; white-space: nowrap;
+  }
+
+  .track-notes {
+    width: 100%; margin-top: 8px;
+    background: var(--dark);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    color: var(--text);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 16px; /* prevent iOS zoom */
+    resize: none; outline: none;
+    min-height: 60px;
+    transition: border-color 0.15s;
+    display: none;
+    -webkit-appearance: none;
+  }
+
+  .track-notes.visible { display: block; }
+  .track-notes:focus { border-color: rgba(10,191,188,0.4); }
+  .track-notes::placeholder { color: var(--muted); }
+
+  .btn-save-note {
+    font-size: 12px;
+    font-family: 'Instrument Sans', sans-serif; font-weight: 600;
+    padding: 8px 16px; border-radius: 8px;
+    background: var(--teal); color: #000;
+    border: none; cursor: pointer;
+    display: none; min-height: 38px;
+    transition: opacity 0.15s;
+  }
+
+  .btn-save-note.visible { display: inline-flex; align-items: center; }
+  .btn-save-note:active { opacity: 0.75; }
+
+  /* ── ACTION TAG PILLS ── */
+  .action-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; padding: 3px 9px;
+    border-radius: 20px; font-weight: 500; letter-spacing: 0.3px;
+  }
+
+  .action-demo   { background: rgba(255,107,107,0.15); color: #FF9999; border: 1px solid rgba(255,107,107,0.25); }
+  .action-send   { background: rgba(255,179,71,0.15);  color: #FFCC88; border: 1px solid rgba(255,179,71,0.25); }
+  .action-follow { background: rgba(107,203,119,0.15); color: #8FD69A; border: 1px solid rgba(107,203,119,0.25); }
+  .action-hot    { background: rgba(255,215,0,0.15);   color: #FFD700; border: 1px solid rgba(255,215,0,0.3); }
+  .action-nofit  { background: rgba(138,155,176,0.1);  color: var(--muted); border: 1px solid var(--border); }
+
+  /* ── MY LOG TAB ── */
+  .log-empty {
+    max-width: 900px; margin: 50px auto;
+    padding: 0 16px; text-align: center;
+  }
+
+  .log-empty-icon { font-size: 36px; margin-bottom: 14px; }
+
+  .log-empty-title {
+    font-family: 'Fraunces', serif;
+    font-size: 18px; font-weight: 300;
+    color: var(--text); margin-bottom: 8px;
+  }
+
+  .log-empty-sub { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+  .log-cards {
+    max-width: 900px; margin: 12px auto 0;
+    padding: 0 16px; display: grid; gap: 8px;
+  }
+
+  .log-card {
+    background: var(--bg2);
+    border: 1px solid rgba(10,191,188,0.2);
+    border-radius: 12px;
+    padding: 14px 14px 14px 17px;
+    position: relative; overflow: hidden;
+  }
+
+  .log-card::before {
+    content: ''; position: absolute;
+    left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--teal);
+    border-radius: 12px 0 0 12px;
+  }
+
+  .log-card-top {
+    display: flex; align-items: flex-start;
+    justify-content: space-between; gap: 10px; margin-bottom: 8px;
+  }
+
+  .log-card-name {
+    font-family: 'Fraunces', serif;
+    font-size: 14px; font-weight: 500; color: var(--text);
+  }
+
+  .log-card-org { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  .log-card-meta {
+    display: flex; gap: 6px;
+    align-items: center; flex-wrap: wrap; margin-top: 6px;
+  }
+
+  .log-card-notes {
+    margin-top: 8px;
+    background: var(--dark);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 9px 12px;
+    font-size: 12px; color: var(--text2);
+    line-height: 1.5; font-style: italic;
+  }
+
+  .log-header {
+    max-width: 900px; margin: 16px auto 0;
+    padding: 0 16px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .log-header-title {
+    font-family: 'Fraunces', serif;
+    font-size: 17px; font-weight: 300; color: var(--text);
+  }
+
+  .btn-export {
+    font-size: 12px;
+    font-family: 'Instrument Sans', sans-serif; font-weight: 600;
+    padding: 9px 14px; border-radius: 10px;
+    background: var(--bg3); border: 1px solid var(--border);
+    color: var(--teal); cursor: pointer;
+    display: flex; align-items: center; gap: 5px;
+    min-height: 40px;
+    transition: all 0.15s;
+  }
+
+  .btn-export:active { opacity: 0.75; }
+
+  .log-filter-bar {
+    max-width: 900px; margin: 12px auto 0;
+    padding: 0 16px;
+    display: flex; gap: 7px;
+    overflow-x: auto; scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .log-filter-bar::-webkit-scrollbar { display: none; }
+  .log-filter-bar .filter-btn { flex-shrink: 0; }
+
+  /* ── EXPORT MODAL ── */
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 200; display: none;
+    align-items: flex-end; /* sheet from bottom on mobile */
+    justify-content: center;
+    padding: 0;
+  }
+
+  .modal-overlay.open { display: flex; }
+
+  .modal {
+    background: var(--bg2);
+    border: 1px solid rgba(10,191,188,0.2);
+    border-radius: 20px 20px 0 0;
+    padding: 20px 20px calc(20px + env(safe-area-inset-bottom));
+    width: 100%;
+    max-width: 600px;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+
+  .modal-handle {
+    width: 36px; height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    margin: 0 auto 16px;
+  }
+
+  .modal-title {
+    font-family: 'Fraunces', serif;
+    font-size: 17px; font-weight: 400; color: var(--text);
+    margin-bottom: 14px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .modal-close {
+    background: none; border: none; color: var(--muted);
+    font-size: 22px; cursor: pointer; padding: 4px; min-width: 36px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .modal-body {
+    background: var(--dark); border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--text); line-height: 1.7;
+    white-space: pre-wrap; word-break: break-word;
+    max-height: 260px; overflow-y: auto;
+    margin-bottom: 14px;
+  }
+
+  .btn-copy {
+    width: 100%; padding: 14px;
+    background: var(--teal); color: #000;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 14px; font-weight: 700;
+    border: none; border-radius: 12px;
+    cursor: pointer; transition: opacity 0.15s;
+  }
+
+  .btn-copy:active { opacity: 0.75; }
+
+  /* ── FOOTER ── */
+  .footer {
+    max-width: 900px; margin: 32px auto 0;
+    padding: 16px 16px 32px;
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px;
+  }
+
+  .footer-text { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); }
+  .footer-cta  { font-size: 11px; color: var(--teal); text-decoration: none; font-weight: 500; }
+
+  /* ── MISC ── */
+  .hidden { display: none !important; }
+  .spacer { height: 6px; }
+
+  .no-results {
+    max-width: 900px; margin: 32px auto;
+    padding: 0 16px; text-align: center;
+    color: var(--muted); font-size: 14px; display: none;
+  }
+
+  /* ── QUICK PITCH ── */
+  .pitch-toggle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; color: var(--muted);
+    background: none; border: none; cursor: pointer;
+    padding: 6px 0 0; display: flex; align-items: center; gap: 4px;
+  }
+  .pitch-toggle:hover { color: var(--teal); }
+  .pitch-body {
+    display: none; margin-top: 8px;
+    background: var(--approach-bg);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--teal);
+    border-radius: 8px; padding: 10px 12px;
+    font-size: 11.5px; color: var(--text2); line-height: 1.6;
+  }
+  .pitch-body.open { display: block; }
+  .pitch-body li { margin-left: 14px; margin-bottom: 4px; }
+  .pitch-body strong { color: var(--teal); }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; bottom: calc(20px + env(safe-area-inset-bottom));
+    left: 50%; transform: translateX(-50%);
+    background: var(--teal); color: #000;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 13px; font-weight: 600;
+    padding: 10px 20px; border-radius: 20px;
+    opacity: 0; transition: opacity 0.2s;
+    pointer-events: none; z-index: 300; white-space: nowrap;
+  }
+  .toast.show { opacity: 1; }
+
+  /* ── DRAFT + SHARE BUTTONS ── */
+  .btn-draft {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 11px; font-family: 'Instrument Sans', sans-serif; font-weight: 600;
+    padding: 6px 12px; border-radius: 8px;
+    background: var(--teal-dim); border: 1px solid var(--teal);
+    color: var(--teal); cursor: pointer; min-height: 34px;
+  }
+  .btn-share-li {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 11px; font-family: 'Instrument Sans', sans-serif; font-weight: 600;
+    padding: 6px 12px; border-radius: 8px;
+    background: rgba(10,102,194,0.15); border: 1px solid #0A66C2;
+    color: #5B9BD5; cursor: pointer; min-height: 34px;
+  }
+  html.light .btn-share-li { color: #0A66C2; background: rgba(10,102,194,0.08); }
+  .log-card-btns { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+
+  /* ── DRAFT MODAL ── */
+  .draft-modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.75);
+    z-index: 250; display: none; align-items: flex-end; justify-content: center;
+  }
+  .draft-modal-overlay.open { display: flex; }
+  .draft-modal {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 20px 20px 0 0;
+    padding: 20px 20px calc(20px + env(safe-area-inset-bottom));
+    width: 100%; max-width: 600px; max-height: 90vh; overflow-y: auto;
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.3);
+  }
+  .draft-handle { width: 36px; height: 4px; background: var(--border-hi); border-radius: 2px; margin: 0 auto 16px; }
+  .draft-modal-title {
+    font-family: 'Fraunces', serif; font-size: 17px; font-weight: 400;
+    color: var(--text); margin-bottom: 4px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .draft-modal-sub { font-size: 11px; color: var(--muted); margin-bottom: 14px; font-family: 'JetBrains Mono', monospace; }
+  .draft-tabs { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
+  .draft-tab {
+    font-size: 11px; font-family: 'Instrument Sans', sans-serif; font-weight: 500;
+    padding: 5px 12px; border-radius: 16px; border: 1px solid var(--border);
+    background: var(--bg3); color: var(--muted); cursor: pointer;
+  }
+  .draft-tab.active { background: var(--teal-dim); border-color: var(--teal); color: var(--teal); }
+  .draft-content {
+    background: var(--approach-bg); border: 1px solid var(--border);
+    border-radius: 8px; padding: 14px; font-size: 12px;
+    color: var(--text); line-height: 1.7; white-space: pre-wrap;
+    word-break: break-word; max-height: 300px; overflow-y: auto;
+    margin-bottom: 4px; outline: none;
+    font-family: 'Instrument Sans', sans-serif;
+  }
+  .draft-content:focus { border-color: var(--teal); }
+  .draft-edit-hint {
+    font-family: 'JetBrains Mono', monospace; font-size: 9px;
+    color: var(--muted); margin-bottom: 12px; text-align: right;
+  }
+  .draft-actions { display: flex; gap: 8px; }
+  .btn-copy-draft {
+    flex: 1; padding: 13px; background: var(--teal); color: #000;
+    font-family: 'Instrument Sans', sans-serif; font-size: 13px; font-weight: 700;
+    border: none; border-radius: 12px; cursor: pointer;
+  }
+  .btn-copy-li {
+    padding: 13px 16px; background: #0A66C2; color: #fff;
+    font-family: 'Instrument Sans', sans-serif; font-size: 13px; font-weight: 700;
+    border: none; border-radius: 12px; cursor: pointer;
+  }
+  .day-badge {
+    font-family: 'JetBrains Mono', monospace; font-size: 9px;
+    padding: 2px 7px; border-radius: 4px; font-weight: 500;
+    background: var(--teal-dim); color: var(--teal); border: 1px solid var(--teal);
+  }
+
+  @media (min-width: 600px) {
+    .draft-modal { border-radius: 16px; max-width: 540px; margin: 20px; max-height: 80vh; }
+    .draft-modal-overlay { align-items: center; padding: 20px; }
+    .draft-handle { display: none; }
+  }
+  @media (min-width: 600px) {
+    .header { padding: 20px 24px; }
+    .header-title { font-size: 20px; }
+    .logo-mark { width: 32px; height: 32px; font-size: 16px; }
+    .logo-text { font-size: 18px; }
+
+    .search-wrap, .filters, .stats-bar,
+    .section-header, .cards, .log-cards,
+    .log-header, .log-filter-bar { padding-left: 24px; padding-right: 24px; }
+
+    .tab-nav { padding: 0 24px; }
+
+    .btn-li {
+      width: auto; height: auto;
+      padding: 6px 12px; gap: 5px;
+      font-size: 11px; overflow: visible;
+    }
+    .btn-li span { display: inline; font-size: 11px; font-weight: 600; }
+    .btn-li svg { width: 12px; height: 12px; }
+
+    .btn-email { width: auto; height: auto; padding: 5px 9px; }
+
+    .card { padding: 16px; }
+    .card:hover { background: var(--bg3); border-color: rgba(255,255,255,0.12); }
+
+    .card-name { font-size: 15px; }
+    .approach { font-size: 12.5px; }
+
+    .modal {
+      border-radius: 16px;
+      max-width: 540px;
+      margin: 20px;
+      max-height: 80vh;
+    }
+
+    .modal-overlay { align-items: center; padding: 20px; }
+    .modal-handle { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-inner">
+    <div class="header-top">
+      <div class="logo">
+        <div class=logo-mark>R</div>
+        <span class="logo-text">Resonance</span>
+      </div>
+      <div class="event-badge">NYSAFAH 2026</div>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light mode" title="Toggle light/dark mode">
+        <div class="theme-toggle-knob" id="themeKnob">🌙</div>
+      </button>
+    </div>
+    <div class="header-title">Conference <em>Outreach Guide</em></div>
+    <div class="header-sub">CTA: Demo request + awareness · Framed around RAD / PACT / Section 18 / URA compliance</div>
+  </div>
+</div>
+
+<!-- TAB NAV -->
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('guide', this)">📋 Guide</button>
+  <button class="tab-btn" id="log-tab-btn" onclick="switchTab('log', this)">✅ My Log <span class="tab-badge" id="log-count">0</span></button>
+</div>
+
+<!-- ═══ TAB: GUIDE ═══ -->
+<div class="tab-page active" id="tab-guide">
+
+<!-- SEARCH -->
+<div class="search-wrap">
+  <div class="search-wrap-inner">
+    <span class="search-icon">🔍</span>
+    <input class="search-box" type="text" id="searchInput" placeholder="Search by name, org, or program…" oninput="filterCards()">
+  </div>
+</div>
+
+<!-- FILTERS -->
+<div class="filters">
+  <button class="filter-btn active" onclick="setFilter('all', this)">All Targets</button>
+  <button class="filter-btn" onclick="setFilter('tier-1', this)"><span class="dot" style="background:var(--tier1)"></span>Tier 1 — Direct Buyers</button>
+  <button class="filter-btn" onclick="setFilter('tier-2', this)"><span class="dot" style="background:var(--tier2)"></span>Tier 2 — Developers</button>
+  <button class="filter-btn" onclick="setFilter('tier-3', this)"><span class="dot" style="background:var(--tier3)"></span>Tier 3 — Referral Sources</button>
+  <button class="filter-btn" onclick="setFilter('tier-ex', this)"><span class="dot" style="background:var(--existing)"></span>Existing Client</button>
+  <button class="filter-btn" onclick="setFilter('contacted', this)">✓ Contacted</button>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-pill">Showing: <span id="totalCount">0</span></div>
+  <div class="stat-pill">Contacted: <span id="contactedCount" style="color:var(--teal)">0</span></div>
+  <div class="stat-pill day-pill">Day: <span id="dayLabel">1</span> <button onclick="toggleDay()" style="background:var(--teal);color:#000;border:none;border-radius:4px;font-size:9px;padding:2px 6px;cursor:pointer;font-family:'JetBrains Mono',monospace;margin-left:4px;">switch</button></div>
+  <div class="stat-pill" style="cursor:pointer;" onclick="toggleSort()">Sort: <span id="sortLabel" style="color:var(--text)">Tier</span> ↕</div>
+</div>
+
+<!-- ═══════════════════════════════════
+     TIER 1 — DIRECT BUYERS
+═══════════════════════════════════ -->
+<div class="section-header" id="section-tier-1">
+  <span class="section-label label-t1">🔴 Tier 1</span>
+  <span class="section-title">Direct Buyers — Walk-Up Priority</span>
+  <span class="section-count" id="count-t1"></span>
+</div>
+
+<div class="cards" id="cards-tier-1">
+
+  <!-- Elizabeth Propp -->
+  <div class="card tier-1 rich" data-tier="tier-1" data-name="elizabeth propp" data-org="nyc public housing preservation trust">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t1">EP</div>
+        <div>
+          <div class="card-name">Elizabeth Propp</div>
+          <div class="card-org">NYC Public Housing Preservation Trust</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Elizabeth%20Propp%20NYC%20Public%20Housing%20Preservation%20Trust" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn-email" href="mailto:Elizabeth.propp@phptrust.nyc.gov">✉</a>
+      </div>
+    </div>
+    <div class="approach"><strong>Walk-up line:</strong> "The Trust is doing exactly what Resonance was built for — multi-phase NYCHA redevelopment at scale. We're the operational layer that keeps household tracking, URA compliance, and right-to-return commitments from falling through the cracks across a 6-year timeline. Worth 20 minutes?" <strong>Ask for:</strong> Demo.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">RAD / PACT</span>
+      <span class="tag tag-program">Section 18</span>
+      <span class="tag tag-demo">→ Demo Request</span>
+      <span class="tag tag-key">Decision Maker</span>
+    </div>
+  </div>
+
+  <!-- Heather Beck -->
+  <div class="card tier-1 rich" data-tier="tier-1" data-name="heather beck" data-org="nycha">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t1">HB</div>
+        <div>
+          <div class="card-name">Heather Beck</div>
+          <div class="card-org">NYCHA</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Heather%20Beck%20NYCHA" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn-email" href="mailto:heather.beck@nycha.nyc.gov">✉</a>
+      </div>
+    </div>
+    <div class="approach"><strong>Walk-up line:</strong> "NYCHA is managing thousands of households across RAD and PACT conversions simultaneously — we built Resonance specifically for that complexity. One platform for household tracking, URA notices, right-to-return, and HUD audit trails. Are you the right person to see a demo?" <strong>Ask for:</strong> Demo or internal referral.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">RAD / PACT</span>
+      <span class="tag tag-program">Choice Neighborhoods</span>
+      <span class="tag tag-demo">→ Demo Request</span>
+      <span class="tag tag-key">Largest HA in the US</span>
+    </div>
+  </div>
+
+  <!-- Christine Wendell -->
+  <div class="card tier-1 rich" data-tier="tier-1" data-name="christine wendell" data-org="pronto housing">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t1">CW</div>
+        <div>
+          <div class="card-name">Christine Wendell</div>
+          <div class="card-org">Pronto Housing</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Christine%20Wendell%20Pronto%20Housing" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn-email" href="mailto:christine@prontohousing.com">✉</a>
+      </div>
+    </div>
+    <div class="approach"><strong>Walk-up line:</strong> "Relocation service providers are one of our core user groups — your team is managing household moves, URA timelines, and developer coordination all at once. Resonance replaces the spreadsheet chaos with a single live dashboard. We'd love to show you what it looks like in practice." <strong>Ask for:</strong> Demo.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">RSP / Relocation</span>
+      <span class="tag tag-program">URA Compliance</span>
+      <span class="tag tag-demo">→ Demo Request</span>
+    </div>
+  </div>
+
+  <!-- Matthew Ethier -->
+  <div class="card tier-1" data-tier="tier-1" data-name="matthew ethier" data-org="watervliet housing authority">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t1">ME</div>
+        <div>
+          <div class="card-name">Matthew Ethier</div>
+          <div class="card-org">Watervliet Housing Authority</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Matthew%20Ethier%20Watervliet%20Housing%20Authority" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn-email" href="mailto:methier@watervliethousing.org">✉</a>
+      </div>
+    </div>
+    <div class="approach">Housing authority managing redevelopment programs. Lead with URA compliance and HUD audit trail capabilities. Direct buyer — ask for a demo.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">Housing Authority</span>
+      <span class="tag tag-demo">→ Demo Request</span>
+    </div>
+  </div>
+
+  <!-- HPD STAFF GROUP -->
+  <div class="card tier-1" data-tier="tier-1" data-name="dina levy commissioner hpd" data-org="nyc hpd">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t1">DL</div>
+        <div>
+          <div class="card-name">Commissioner Dina Levy</div>
+          <div class="card-org">NYC HPD — Commissioner</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Dina%20Levy%20NYC%20HPD" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn-email" href="mailto:levyd@hpd.nyc.gov">✉</a>
+      </div>
+    </div>
+    <div class="approach"><strong>Awareness play.</strong> She sets policy direction for HPD-funded programs. Introduce Resonance as the operational infrastructure that makes relocation compliance trackable at scale. Don't pitch — have a 90-second conversation and ask who on her team manages relocation ops.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">RAD / PACT / Section 18</span>
+      <span class="tag tag-awareness">→ Awareness</span>
+      <span class="tag tag-key">Top of House</span>
+    </div>
+  </div>
+
+  <!-- HPD Staff (grouped) -->
+  <div class="card tier-1" data-tier="tier-1" data-name="alicka ampry-samuel meryl block weissman dana cargill tricia dietz julie elliot tanisha hines celeste hornbach kerry labotz sarah leitson jennifer leone henry mclaurin dan moran emily osgood sandra peart adam phillips sarit platkin neil reilly rona reodica alex resnick alex rawding daphne rubin-vega michael sandler miri shpuza tanaya srini emma turzillo audrey wachs julie walpert hpd" data-org="nyc hpd">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t1">HP</div>
+        <div>
+          <div class="card-name">NYC HPD Staff — Relocation &amp; Program Ops</div>
+          <div class="card-org">NYC Department of Housing Preservation &amp; Development</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=NYC%20HPD%20relocation" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach"><strong>25+ HPD staff attending.</strong> Key contacts: Ampry-Samuel, Block Weissman, Cargill, Dietz, Elliot, Hines, Hornbach, LaBotz, Leitson, Leone, McLaurin, Moran, Osgood, Peart, Phillips, Platkin, Reilly, Reodica, Resnick, Rawding, Rubin-Vega, Sandler, Shpuza, Srini, Turzillo, Wachs, Walpert. These are the people who manage relocation compliance on RAD/PACT programs day-to-day — they feel the pain. Open with: <strong>"How are you currently tracking household relocation across PACT programs — is it still spreadsheets?"</strong> Then listen.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">RAD / PACT / Section 18</span>
+      <span class="tag tag-demo">→ Demo Request</span>
+      <span class="tag tag-key">25+ Attendees</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════
+     TIER 2 — DEVELOPERS
+═══════════════════════════════════ -->
+<div class="section-header" id="section-tier-2">
+  <span class="section-label label-t2">🟠 Tier 2</span>
+  <span class="section-title">Developers Running Their Own Relocation</span>
+  <span class="section-count" id="count-t2"></span>
+</div>
+
+<div class="cards" id="cards-tier-2">
+
+  <!-- Tredway -->
+  <div class="card tier-2" data-tier="tier-2" data-name="tredway joshua abada daniel guerra adam sussi mallory warner victoria tran" data-org="tredway">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t2">TR</div>
+        <div>
+          <div class="card-name">Tredway Team</div>
+          <div class="card-org">Tredway — PACT Operator, NYC</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Tredway%20affordable%20housing" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">Active PACT operator in NYC managing large-scale NYCHA conversions. 5 attendees: Abada, Guerra, Sussi, Warner, Tran. Lead with right-to-return tracking and HUD audit trail — this is their daily compliance burden. Strong demo candidate.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">PACT</span>
+      <span class="tag tag-demo">→ Demo Request</span>
+      <span class="tag tag-key">5 Attendees</span>
+    </div>
+  </div>
+
+  <!-- L+M -->
+  <div class="card tier-2" data-tier="tier-2" data-name="l+m development partners eben ellertson dyllon gibbs adam hellegers alexandra kaplan sara levenson olivia mccaughey ilana moyer heli pinillos-schwartz morgan reuther jenne richardson jonah ricanati hannah roth katie tindol jerald watson jessica yoon bryn coughlan" data-org="l+m development">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t2">LM</div>
+        <div>
+          <div class="card-name">L+M Development Partners</div>
+          <div class="card-org">Major NYC RAD / PACT Operator</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=L%2BM%20Development%20Partners" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">One of NYC's most active RAD/PACT developers. 13+ attendees across teams. Lead with household tracking across multi-phase programs and URA compliance documentation. Ask who owns relocation coordination internally — that's your buyer.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">RAD / PACT</span>
+      <span class="tag tag-demo">→ Demo Request</span>
+      <span class="tag tag-key">13+ Attendees</span>
+    </div>
+  </div>
+
+  <!-- Forsyth Street -->
+  <div class="card tier-2" data-tier="tier-2" data-name="forsyth street amina amer peter beck chuck brass amy chandra aileen gribbin kamu kakizaki marc jahr olga jobe evan seiler elliott weissmann" data-org="forsyth street">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t2">FS</div>
+        <div>
+          <div class="card-name">Forsyth Street Advisors / Affordable Housing</div>
+          <div class="card-org">Preservation Developer &amp; Advisor</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Forsyth%20Street%20Advisors%20affordable%20housing" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">Preservation-focused developer and advisory firm. 8+ attendees. Strong fit for LIHTC preservation and Section 18 relocation management. Lead with compliance documentation and multi-stakeholder coordination.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">LIHTC Preservation</span>
+      <span class="tag tag-program">Section 18</span>
+      <span class="tag tag-demo">→ Demo Request</span>
+    </div>
+  </div>
+
+  <!-- Monadnock -->
+  <div class="card tier-2" data-tier="tier-2" data-name="monadnock development frank dubinsky josh haggarty john keys jiazhen lin eunice suh adrien logeay" data-org="monadnock">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t2">MN</div>
+        <div>
+          <div class="card-name">Monadnock Development</div>
+          <div class="card-org">Active RAD Developer, NYC</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Monadnock%20Development%20affordable%20housing" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">Active RAD developer with multiple NYC programs. 6 attendees: Dubinsky, Haggarty, Keys, Lin, Suh, Logeay. Ask about their current relocation coordination workflow — right-to-return and phasing complexity is the pain point.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">RAD</span>
+      <span class="tag tag-demo">→ Demo Request</span>
+    </div>
+  </div>
+
+  <!-- BRP Companies -->
+  <div class="card tier-2" data-tier="tier-2" data-name="brp companies lennox brown jordan camp andy cohen geoffrey flournoy zulekha inayat nicholas maloney meredith marshall zach schwanbeck mary serafy steven smith gillian sollenberger brian zendano" data-org="brp">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t2">BP</div>
+        <div>
+          <div class="card-name">BRP Companies</div>
+          <div class="card-org">NYC Affordable Developer</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=BRP%20Companies%20affordable%20housing" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">Active affordable developer with RAD/PACT programs. 11+ attendees. Lead with how Resonance reduces coordination overhead between their team, the housing authority, and RSPs. Ask who manages their relocation plans.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">RAD / PACT</span>
+      <span class="tag tag-demo">→ Demo Request</span>
+      <span class="tag tag-key">11+ Attendees</span>
+    </div>
+  </div>
+
+  <!-- Ascendant -->
+  <div class="card tier-2" data-tier="tier-2" data-name="ascendant neighborhood development chris cirillo victor filpo matthias helfen" data-org="ascendant">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t2">AN</div>
+        <div>
+          <div class="card-name">Ascendant Neighborhood Development</div>
+          <div class="card-org">Active PACT Operator, NYC</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Ascendant%20Neighborhood%20Development" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">Cirillo, Filpo, Helfen — all three are potential contacts. PACT-focused operator. Ask about household tracking across phases and whether they're managing right-to-return manually.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">PACT</span>
+      <span class="tag tag-demo">→ Demo Request</span>
+    </div>
+  </div>
+
+  <!-- Breaking Ground -->
+  <div class="card tier-2" data-tier="tier-2" data-name="breaking ground amie pospisil brenda rosen judith rosenfeld david walsh" data-org="breaking ground">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t2">BG</div>
+        <div>
+          <div class="card-name">Breaking Ground</div>
+          <div class="card-org">Large-Scale Affordable / Supportive Housing</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Breaking%20Ground%20affordable%20housing%20NYC" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">4 attendees including Pospisil and Rosen. Manages large affordable/supportive portfolios requiring household tracking and compliance. Lead with operational efficiency and audit-readiness.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">Supportive Housing</span>
+      <span class="tag tag-demo">→ Demo Request</span>
+    </div>
+  </div>
+
+  <!-- Phipps Houses -->
+  <div class="card tier-2" data-tier="tier-2" data-name="phipps houses kelly biscuso isaac guttman steve lovci nina villanueva hugh ward adam weinstein astrid steward" data-org="phipps">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t2">PH</div>
+        <div>
+          <div class="card-name">Phipps Houses</div>
+          <div class="card-org">Long-Term NYC Affordable Developer</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Phipps%20Houses%20affordable%20housing" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">7 attendees. Deep NYC affordable portfolio, active in preservation and redevelopment. Lead with LIHTC preservation and multi-year relocation tracking. Weinstein is a key contact as a senior figure.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">LIHTC Preservation</span>
+      <span class="tag tag-demo">→ Demo Request</span>
+      <span class="tag tag-key">7 Attendees</span>
+    </div>
+  </div>
+
+  <!-- RiseBoro -->
+  <div class="card tier-2" data-tier="tier-2" data-name="riseboro community partnership kieran harrington emily kurtz melanie la rocca joe moreno" data-org="riseboro">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t2">RB</div>
+        <div>
+          <div class="card-name">RiseBoro Community Partnership</div>
+          <div class="card-org">Active RAD / PACT Developer</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=RiseBoro%20Community%20Partnership" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">Harrington, Kurtz, La Rocca, Moreno. Community-based developer active in RAD/PACT. Ask about how they coordinate relocation with housing authority partners — coordination friction is the opening.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">RAD / PACT</span>
+      <span class="tag tag-demo">→ Demo Request</span>
+    </div>
+  </div>
+
+  <!-- WinnCompanies -->
+  <div class="card tier-2" data-tier="tier-2" data-name="winncompanies justin barton alina butareva whitney chambers chanda dawadi lindsay finkenstaedt david ginsberg emily johansen" data-org="winn">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t2">WC</div>
+        <div>
+          <div class="card-name">WinnCompanies</div>
+          <div class="card-org">National Affordable Housing Operator</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=WinnCompanies%20affordable%20housing" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">National operator managing large RAD/PACT portfolios. 7 attendees. Multi-state, multi-program scale means relocation coordination complexity is high. Ginsberg as a senior leader is the right entry point.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">RAD / PACT</span>
+      <span class="tag tag-demo">→ Demo Request</span>
+      <span class="tag tag-key">National Operator</span>
+    </div>
+  </div>
+
+  <!-- Camber Property Group -->
+  <div class="card tier-2" data-tier="tier-2" data-name="camber property group mark abramowicz matthew burney carter clarke meghan duffy matt halper alli holzberg karen hu joanna kandel benjamin kornfeind nicholas krok andrew moelis daniel norelli mariaelena paris sarah pizer alejandra ramos joseph ramos james rogers dan rosenfeld josh weisstuch" data-org="camber">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t2">CP</div>
+        <div>
+          <div class="card-name">Camber Property Group</div>
+          <div class="card-org">NYC Affordable Developer — Large Delegation</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Camber%20Property%20Group%20affordable%20housing" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">One of the largest delegations at the conference — 15+ attendees. Active in NYC affordable preservation and new construction. Rick Gropper (founding principal) is the top target if attending. Lead with how Resonance handles multi-phase relocation coordination across their portfolio. Ask who owns relocation compliance on their active programs.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">LIHTC Preservation</span>
+      <span class="tag tag-program">RAD</span>
+      <span class="tag tag-demo">→ Demo Request</span>
+      <span class="tag tag-key">15+ Attendees</span>
+    </div>
+  </div>
+
+  <!-- Douglaston Development -->
+  <div class="card tier-2" data-tier="tier-2" data-name="douglaston development issac ahdoot jonathan heller javonna james liz oakley david rosen ellen shakespear jessica sherman reia tong mark trainer daniel russo" data-org="douglaston">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t2">DD</div>
+        <div>
+          <div class="card-name">Douglaston Development</div>
+          <div class="card-org">NYC Mixed-Income Developer — Active RAD/PACT</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Douglaston%20Development%20affordable%20housing" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">10+ attendees. Active in affordable and mixed-income development with RAD/PACT programs. Heller and Rosen are senior contacts. Lead with right-to-return tracking and multi-stakeholder coordination across their NYCHA-adjacent programs.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">RAD / PACT</span>
+      <span class="tag tag-demo">→ Demo Request</span>
+      <span class="tag tag-key">10+ Attendees</span>
+    </div>
+  </div>
+
+  <!-- The Community Preservation Corporation (CPC) -->
+  <div class="card tier-2" data-tier="tier-2" data-name="community preservation corporation cpc rafael cestero william alexis caroline araujo dounia badidi sanya bery monique clarke amy cohen emily hamilton rachel haspel emily klein michael kroog ana madero patricia mchugh brandie moreno caymary o'garro doug olcott jason osborn ravi ramdath robert riggs pawel sieradzy athena smith brian smith matthew spallina michael staton christina torres ehiabhi uwa josh westerman daniel wheelan marcos zapata amy dehuff olga friedman robert garcia andrew giglio emily hamilton emily klein" data-org="community preservation corporation">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t2">CC</div>
+        <div>
+          <div class="card-name">The Community Preservation Corporation (CPC)</div>
+          <div class="card-org">Major NYC CDFI &amp; Developer — Preservation Focus</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Community%20Preservation%20Corporation%20CPC%20affordable%20housing" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">Largest delegation at the conference — 25+ attendees. CPC both lends to and develops affordable housing, with deep LIHTC preservation and RAD expertise. Rafael Cestero (President) is the top target. Lead with how Resonance reduces compliance risk across their borrower portfolio — if their borrowers use Resonance, CPC's program integrity improves too. Dual angle: direct buyer and referral source to their developer clients.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">LIHTC Preservation</span>
+      <span class="tag tag-program">RAD</span>
+      <span class="tag tag-demo">→ Demo Request</span>
+      <span class="tag tag-referral">→ Referral Source</span>
+      <span class="tag tag-key">25+ Attendees</span>
+    </div>
+  </div>
+
+  <!-- Pennrose -->
+  <div class="card tier-2" data-tier="tier-2" data-name="pennrose charles adams marsha blunt rhonda caldwell william d'avella david blackwell marc-eric ernestus angela eicholtz timothy henkel carson leifer david marin dylan salmons maria rodriguez graciela watrous tricia yarger jonah wyett" data-org="pennrose">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t2">PE</div>
+        <div>
+          <div class="card-name">Pennrose</div>
+          <div class="card-org">National Affordable Developer — Mid-Atlantic &amp; Northeast</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Pennrose%20affordable%20housing" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">13+ attendees. National developer active in LIHTC, RAD, and Choice Neighborhoods programs across NY, PA, and NJ. Henkel (SVP) is the senior contact. Ask about their relocation workflow on Choice Neighborhoods programs — these are the most complex and highest-fit for Resonance.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">Choice Neighborhoods</span>
+      <span class="tag tag-program">RAD / LIHTC</span>
+      <span class="tag tag-demo">→ Demo Request</span>
+      <span class="tag tag-key">13+ Attendees</span>
+    </div>
+  </div>
+
+  <!-- The Community Builders -->
+  <div class="card tier-2" data-tier="tier-2" data-name="the community builders tcb brian backscheider hasan bahar jesse batus bennett baumer patricia belden michelle cafarelli kabat christopher carver anthony coniglio adam ghazzawi jessica loeser kristin nelson eric perez julie robblee leta rowan" data-org="community builders">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t2">TC</div>
+        <div>
+          <div class="card-name">The Community Builders (TCB)</div>
+          <div class="card-org">National Nonprofit Developer — Choice &amp; HOPE VI</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=The%20Community%20Builders%20affordable%20housing" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">12+ attendees. National nonprofit developer with deep expertise in Choice Neighborhoods and HOPE VI successor programs — exactly Resonance's sweet spot. Multi-phase, long-horizon relocation programs with heavy HUD compliance requirements. Backscheider and Bahar are key contacts. Lead with long-horizon resident tracking and right-to-return across multi-year construction phases.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">Choice Neighborhoods</span>
+      <span class="tag tag-program">HOPE VI</span>
+      <span class="tag tag-demo">→ Demo Request</span>
+      <span class="tag tag-key">12+ Attendees</span>
+    </div>
+  </div>
+
+  <!-- MDG Design and Construction -->
+  <div class="card tier-2" data-tier="tier-2" data-name="mdg design construction danny cabrera jonathan cruz rachel fajiram cole garcia nick guzek kevan hayat jack jeshiva john larounis lisa picciano phillip petri matthew rooney andrew winn" data-org="mdg">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t2">MD</div>
+        <div>
+          <div class="card-name">MDG Design &amp; Construction</div>
+          <div class="card-org">NYC Affordable Developer &amp; GC — PACT Focus</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=MDG%20Design%20Construction%20affordable%20housing" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">10+ attendees. MDG operates as both developer and GC on major PACT programs in NYC — they're coordinating construction timelines directly with relocation sequencing. Ask how they manage the handoff between construction phasing and household moves. That friction is exactly where Resonance lives.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">PACT</span>
+      <span class="tag tag-demo">→ Demo Request</span>
+      <span class="tag tag-key">10+ Attendees</span>
+    </div>
+  </div>
+
+  <!-- Settlement Housing Fund -->
+  <div class="card tier-2" data-tier="tier-2" data-name="settlement housing fund samantha alston carmen castillo amanda cunningham mildred flores-thevenin emily lehman lori lewis ryan hicks jacqueline tom jocelyn torio" data-org="settlement housing fund">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t2">SH</div>
+        <div>
+          <div class="card-name">Settlement Housing Fund</div>
+          <div class="card-org">NYC Nonprofit Developer — Affordable &amp; Supportive</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Settlement%20Housing%20Fund%20affordable%20housing%20NYC" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">8 attendees. NYC nonprofit developer with preservation-focused portfolio. Active in LIHTC and supportive housing programs requiring resident tracking. Lehman and Flores-Thevenin are key contacts. Lead with compliance documentation and resident case management.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">LIHTC Preservation</span>
+      <span class="tag tag-demo">→ Demo Request</span>
+    </div>
+  </div>
+
+  <!-- Rockabill Consulting -->
+  <div class="card tier-2" data-tier="tier-2" data-name="rockabill consulting development erin bailey p. christopher dirr amy holodak niall murray patrick pinkerton nina ricci" data-org="rockabill">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t2">RC</div>
+        <div>
+          <div class="card-name">Rockabill Consulting &amp; Development</div>
+          <div class="card-org">Affordable Housing Development Consultant</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Rockabill%20Consulting%20affordable%20housing" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">6 attendees. Development consultants who help housing authorities and nonprofits structure and execute affordable programs. High referral value — they advise clients on operational setup. Dirr and Bailey are senior contacts. Position Resonance as the tool they can recommend for any program requiring URA-compliant relocation management.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">RAD / PACT Advisory</span>
+      <span class="tag tag-referral">→ Referral Source</span>
+      <span class="tag tag-demo">→ Demo Request</span>
+    </div>
+  </div>
+
+  <!-- NYC HDC Staff -->
+  <div class="card tier-2" data-tier="tier-2" data-name="nyc hdc housing development corporation cathy baumann jennifer beamish wanjiru bila tom bethany brian cheigh lauren connors brian daaleman ellen duffy jessica facciponti nicole forero horace greene adil hakem kelsey johnson brittany lawrence tinru lin susannah lipsyte harris mazur fabiana meacham alex merchant kelly ng susan o'neill angus page quinn pearson camille preel dumas michael rose moira skeados jessica valentino merin urban" data-org="nyc hdc">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t2">HD</div>
+        <div>
+          <div class="card-name">NYC HDC Staff</div>
+          <div class="card-org">NYC Housing Development Corporation — Financing Agency</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=NYC%20HDC%20Housing%20Development%20Corporation" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">20+ HDC staff attending. HDC finances RAD/PACT and preservation deals — they don't directly buy Resonance, but they interact with every developer doing a relocation program in NYC. Getting on their radar means they can recommend Resonance to developers at the point of deal structuring. Key contacts: Cheigh (SVP), Murphy (SVP). Awareness and referral play.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">RAD / PACT Financing</span>
+      <span class="tag tag-awareness">→ Awareness</span>
+      <span class="tag tag-referral">→ Referral Source</span>
+      <span class="tag tag-key">20+ Attendees</span>
+    </div>
+  </div>
+
+  <!-- NYS HCR -->
+  <div class="card tier-2" data-tier="tier-2" data-name="nys hcr homes community renewal ruthanne visnauskas burke blackman miga beqiri farhana choudhury kayla demicco ariana espinal madeline fletcher evan gibson brett hebner carmen hendrickson russell hubley ira jones-cimini ross karp steven king rebecca koepnick robert landy renee loiacono betsy mallow will martin mark meigher simon mcdonnell dominic martello mark price karis rasmussen shachar roloson stephanie ruiz darren scott alexa sewell elana shneyer kevin velez kate vantassel clair weatherby kristy whitcher rachel wieder davis winslow seth mozer-katz amy zamenick thomas lipovetsky matt manswell betty huang dmitry kushnirsky eu tingzambuto ben wetzler joseph palozzola samantha pearce jason pearson eleanor peck maureen hartwell shannon prevatt" data-org="nys hcr">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t2">HCR</div>
+        <div>
+          <div class="card-name">NYS HCR / NYS Homes &amp; Community Renewal</div>
+          <div class="card-org">State Housing Finance Agency — Commissioner Visnauskas</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=NYS%20Homes%20Community%20Renewal%20HCR%20affordable%20housing" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">30+ HCR staff attending — the largest agency delegation at the conference. Commissioner Visnauskas is the top awareness target. HCR funds and oversees LIHTC, RAD, and preservation programs statewide. If HCR staff understand Resonance and recommend it to grantees, it's a statewide distribution channel. <strong>Key contacts:</strong> Visnauskas (Commissioner), Blackman, Gibson, Karp. Awareness and policy play — ask whether HCR has any interest in standardizing relocation compliance reporting across its portfolio.</div>
+    <div class="card-tags">
+      <span class="tag tag-program">LIHTC / RAD / Preservation</span>
+      <span class="tag tag-awareness">→ Awareness</span>
+      <span class="tag tag-referral">→ Referral / Policy</span>
+      <span class="tag tag-key">30+ Attendees</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════
+     TIER 3 — REFERRAL SOURCES
+═══════════════════════════════════ -->
+<div class="section-header" id="section-tier-3">
+  <span class="section-label label-t3">🟢 Tier 3</span>
+  <span class="section-title">Referral Sources &amp; Influencers</span>
+  <span class="section-count" id="count-t3"></span>
+</div>
+
+<div class="cards" id="cards-tier-3">
+
+  <!-- Nixon Peabody -->
+  <div class="card tier-3" data-tier="tier-3" data-name="nixon peabody deborah vanamerongen erica buckley bruce serchuk meghan altidor kris antonik asia archey nataliya arias jeremy busch julia casteleiro caroline caulfield scott cavallo alexandra hohauser julianna leone nick leon josie morris mckenzie mchugh susanna mitchell brian murphy dana roper avery ryou erica thompson pamela villacis vanessa york aaron yowell" data-org="nixon peabody">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t3">NP</div>
+        <div>
+          <div class="card-name">Nixon Peabody LLP</div>
+          <div class="card-org">Affordable Housing Law — Counsel on Virtually Every RAD/PACT Deal</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Nixon%20Peabody%20affordable%20housing" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">20+ attendees. Counsel on virtually every RAD/PACT deal in the room. <strong>Key contacts: Deborah VanAmerongen, Erica Buckley, Bruce Serchuk.</strong> They advise developers on URA compliance and HUD requirements — if they refer Resonance to clients it compounds across their entire book. Pitch them on the referral: "When your clients ask how to manage relocation compliance operationally, Resonance is the answer."</div>
+    <div class="card-tags">
+      <span class="tag tag-referral">→ Referral Source</span>
+      <span class="tag tag-key">20+ Attendees</span>
+      <span class="tag tag-program">RAD / PACT Counsel</span>
+    </div>
+  </div>
+
+  <!-- Klein Hornig -->
+  <div class="card tier-3" data-tier="tier-3" data-name="klein hornig emily blumberg david egan nick draeger hannah hutchison doruk onvural daniel rosen dawna steelman mark stokely" data-org="klein hornig">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t3">KH</div>
+        <div>
+          <div class="card-name">Klein Hornig LLP</div>
+          <div class="card-org">Affordable Housing Law</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Klein%20Hornig%20affordable%20housing" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">8 attendees. Blumberg, Egan, Draeger are the key contacts. Same play as Nixon Peabody — they're advising clients on compliance, and Resonance is the operational layer that makes compliance manageable. Warm referral source.</div>
+    <div class="card-tags">
+      <span class="tag tag-referral">→ Referral Source</span>
+      <span class="tag tag-program">URA / HUD Compliance</span>
+    </div>
+  </div>
+
+  <!-- Enterprise -->
+  <div class="card tier-3" data-tier="tier-3" data-name="enterprise community partners patrick boyle sam biele-fisher kim darga dan magidson victoria barreca rowe sivan bentt-bruce dan cooper jonathan duncan jonathan eber milton feliciano mason hoge aubree jones rafay kazmi apollonia mcintyre michelle mulcahy kevin morris corey parson anna santana matthew singh katie vail natasha leonard elizabeth zeldin anna zelinsky" data-org="enterprise">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t3">EC</div>
+        <div>
+          <div class="card-name">Enterprise Community Partners</div>
+          <div class="card-org">Major CDFI / Intermediary — Funds These Programs</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Enterprise%20Community%20Partners%20affordable%20housing" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">15+ attendees. Enterprise funds and supports many of the RAD/PACT programs in this room. Getting on their radar as the preferred relocation operations platform means every program they touch becomes a warm lead. Focus on Boyle, Darga, Magidson at the senior level.</div>
+    <div class="card-tags">
+      <span class="tag tag-referral">→ Referral / Influencer</span>
+      <span class="tag tag-key">15+ Attendees</span>
+    </div>
+  </div>
+
+  <!-- CGMR Compliance -->
+  <div class="card tier-3" data-tier="tier-3" data-name="cgmr compliance partners cgmr housing equity project caroline corella christine velia" data-org="cgmr">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t3">CG</div>
+        <div>
+          <div class="card-name">CGMR Compliance Partners / Housing Equity Project</div>
+          <div class="card-org">URA &amp; HUD Compliance Consultants</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Caroline%20Corella%20CGMR%20Compliance" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach"><strong>High-fit referral source.</strong> Corella and Velia work directly with developers on URA and HUD compliance. They know exactly where operational gaps exist. Position Resonance as the tool that makes their compliance advice executable — and explore a referral/partner relationship.</div>
+    <div class="card-tags">
+      <span class="tag tag-referral">→ Referral / Partner</span>
+      <span class="tag tag-program">URA Compliance</span>
+      <span class="tag tag-key">High Fit</span>
+    </div>
+  </div>
+
+  <!-- NAHRO -->
+  <div class="card tier-3" data-tier="tier-3" data-name="nahro national association housing redevelopment officials lisa kirch" data-org="nahro">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t3">NA</div>
+        <div>
+          <div class="card-name">Lisa Kirch — NAHRO</div>
+          <div class="card-org">National Association of Housing &amp; Redevelopment Officials</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Lisa%20Kirch%20NAHRO" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn-email" href="mailto:lkirch@nahro.org">✉</a>
+      </div>
+    </div>
+    <div class="approach">Force multiplier. NAHRO connects housing authority officials nationally. Getting Resonance on their radar or into their member communications reaches hundreds of HAs. Awareness play — ask about member education opportunities or tech showcases.</div>
+    <div class="card-tags">
+      <span class="tag tag-referral">→ Influencer</span>
+      <span class="tag tag-key">National Reach</span>
+    </div>
+  </div>
+
+  <!-- NLHA -->
+  <div class="card tier-3" data-tier="tier-3" data-name="national leased housing association denise muha" data-org="nlha">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t3">NL</div>
+        <div>
+          <div class="card-name">Denise Muha — National Leased Housing Association</div>
+          <div class="card-org">NLHA — National Advocacy &amp; Policy</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Denise%20Muha%20National%20Leased%20Housing%20Association" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn-email" href="mailto:dmuha@hudnlha.com">✉</a>
+      </div>
+    </div>
+    <div class="approach">Policy and advocacy body covering leased housing programs nationally. Awareness play — position Resonance as the operational infrastructure the industry has been missing for RAD/PACT compliance.</div>
+    <div class="card-tags">
+      <span class="tag tag-referral">→ Awareness / Policy</span>
+      <span class="tag tag-key">National Reach</span>
+    </div>
+  </div>
+
+  <!-- Guidehouse -->
+  <div class="card tier-3" data-tier="tier-3" data-name="guidehouse laura slutsky alexis mosier" data-org="guidehouse">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t3">GH</div>
+        <div>
+          <div class="card-name">Guidehouse — Slutsky &amp; Mosier</div>
+          <div class="card-org">Federal Consulting — HUD Program Advisory</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Laura%20Slutsky%20Guidehouse" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">Federal consultants advising on HUD programs. They see compliance gaps firsthand across housing authorities. Strong referral angle — explore whether they can recommend Resonance to HA clients struggling with relocation documentation.</div>
+    <div class="card-tags">
+      <span class="tag tag-referral">→ Referral Source</span>
+      <span class="tag tag-program">HUD Advisory</span>
+    </div>
+  </div>
+
+  <!-- CohnReznick -->
+  <div class="card tier-3" data-tier="tier-3" data-name="cohnreznick winell belfonte mike bisson mark kavanaugh nick ratti jason rocker mike schwartz" data-org="cohnreznick">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t3">CR</div>
+        <div>
+          <div class="card-name">CohnReznick</div>
+          <div class="card-org">Accounting &amp; Advisory — Affordable Housing Practice</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=CohnReznick%20affordable%20housing" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">6 attendees. Major affordable housing accounting and advisory firm — they audit LIHTC, RAD, and PACT programs and advise developers on compliance. If they see Resonance as the tool that keeps their clients audit-ready, they become a referral channel. Kavanaugh is the senior contact.</div>
+    <div class="card-tags">
+      <span class="tag tag-referral">→ Referral Source</span>
+      <span class="tag tag-program">LIHTC / HUD Audit</span>
+    </div>
+  </div>
+
+  <!-- Novogradac -->
+  <div class="card tier-3" data-tier="tier-3" data-name="novogradac company john dejovine stacy gordon tony morales kyle petruzziello ryan petter charlie rhuda lauren samsa harmon" data-org="novogradac">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t3">NV</div>
+        <div>
+          <div class="card-name">Novogradac &amp; Company LLP</div>
+          <div class="card-org">Affordable Housing Accounting &amp; Tax Credit Advisory</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Novogradac%20affordable%20housing%20tax%20credit" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">7 attendees. The go-to firm for LIHTC and RAD accounting. Their clients are exactly Resonance's buyers. Same referral play as CohnReznick — position Resonance as the tool that makes their clients' compliance documentation audit-ready before Novogradac even walks in the door.</div>
+    <div class="card-tags">
+      <span class="tag tag-referral">→ Referral Source</span>
+      <span class="tag tag-program">LIHTC / RAD Accounting</span>
+    </div>
+  </div>
+
+  <!-- Cassin & Cassin -->
+  <div class="card tier-3" data-tier="tier-3" data-name="cassin cassin llp kyle banas evan blau beth budnick jordan hersch matthew jaffee danielle joel william melendez etan moskovic andrew rosenberg cassia schaeffer katelyn squicciarini dana suka john thomas" data-org="cassin">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t3">CC</div>
+        <div>
+          <div class="card-name">Cassin &amp; Cassin LLP</div>
+          <div class="card-org">Affordable Housing Law — Transactions &amp; Compliance</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Cassin%20Cassin%20LLP%20affordable%20housing" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">12+ attendees. One of NYC's most active affordable housing law firms — counsel on RAD, PACT, and Section 8 transactions. Strong referral source for developer clients navigating URA and relocation compliance requirements. Same angle as Nixon Peabody: when clients need operational support, point them to Resonance.</div>
+    <div class="card-tags">
+      <span class="tag tag-referral">→ Referral Source</span>
+      <span class="tag tag-program">RAD / PACT / Section 8</span>
+      <span class="tag tag-key">12+ Attendees</span>
+    </div>
+  </div>
+
+  <!-- HUD -->
+  <div class="card tier-3" data-tier="tier-3" data-name="hud us department housing urban development kashima loney" data-org="hud">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t3">HUD</div>
+        <div>
+          <div class="card-name">Kashima Loney — HUD</div>
+          <div class="card-org">US Department of Housing &amp; Urban Development</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Kashima%20Loney%20HUD" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn-email" href="mailto:kashima.a.loney@hud.gov">✉</a>
+      </div>
+    </div>
+    <div class="approach">Pure awareness play — do not pitch. Introduce Resonance as the operational infrastructure the industry uses to stay audit-ready for HUD reviews. Ask what documentation gaps they most commonly see in RAD/PACT program audits — that answer is your product roadmap intelligence and opens a natural follow-up.</div>
+    <div class="card-tags">
+      <span class="tag tag-awareness">→ Awareness Only</span>
+      <span class="tag tag-program">HUD Oversight</span>
+      <span class="tag tag-key">Intelligence Opportunity</span>
+    </div>
+  </div>
+
+  <!-- NYC Mayor's Office -->
+  <div class="card tier-3" data-tier="tier-3" data-name="new york city mayor's office deputy mayor leila bozorg seth bynum lily richman reed jordan genevieve michel douglas pardella matt pietrus arvind sindhwani" data-org="nyc mayor">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t3">MO</div>
+        <div>
+          <div class="card-name">NYC Mayor's Office</div>
+          <div class="card-org">Deputy Mayor Bozorg + City Hall Staff</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Leila%20Bozorg%20NYC%20Deputy%20Mayor" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">Deputy Mayor Bozorg oversees housing policy for the City. 6 City Hall staff attending. Awareness play — introduce Resonance as the operational layer that makes the City's PACT and RAD programs more accountable and resident-friendly. Not a buyer, but a policy amplifier. If they understand the problem Resonance solves, it shapes RFP language and program requirements in your favor.</div>
+    <div class="card-tags">
+      <span class="tag tag-awareness">→ Awareness / Policy</span>
+      <span class="tag tag-key">Policy Amplifier</span>
+    </div>
+  </div>
+
+  <!-- LISC NY -->
+  <div class="card tier-3" data-tier="tier-3" data-name="lisc ny tatiana pena christine retzlaff o'connell" data-org="lisc">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-t3">LI</div>
+        <div>
+          <div class="card-name">LISC NY — Pena &amp; Retzlaff O'Connell</div>
+          <div class="card-org">Local Initiatives Support Corporation — CDFI</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=LISC%20NY%20affordable%20housing" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach">CDFI that supports community developers across NY. Referral play — LISC touches many of the smaller nonprofit developers who don't have Resonance on their radar yet. Awareness conversation that can cascade to their grantees and borrowers.</div>
+    <div class="card-tags">
+      <span class="tag tag-referral">→ Referral / CDFI</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════
+     EXISTING CLIENT — KALEL
+═══════════════════════════════════ -->
+<div class="section-header" id="section-tier-ex">
+  <span class="section-label label-ex">⭐ Client</span>
+  <span class="section-title">Existing Client — Nurture &amp; Deepen</span>
+  <span class="section-count" id="count-ex"></span>
+</div>
+
+<div class="cards" id="cards-tier-ex">
+
+  <div class="card tier-ex" data-tier="tier-ex" data-name="kalel companies noah braendel nick calabrese pierre downing jerry jacobik luis miguel pizano amy stokes noel henderson-james adrienne wolff" data-org="kalel">
+    <div class="card-top">
+      <div class="card-left">
+        <div class="avatar avatar-ex">KC</div>
+        <div>
+          <div class="card-name">Kalel Companies Team</div>
+          <div class="card-org">Kalel Companies — Active Resonance Client ⭐</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=Kalel%20Companies%20affordable%20housing" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="approach"><strong>Do NOT pitch.</strong> 8 attendees: Braendel, Calabrese, Downing, Jacobik, Miguel Pizano, Stokes, Henderson-James, Wolff. Note: Kalel has been flagged as a downgraded account due to a personnel departure and non-responsive contact — use the conference as a relationship reset. Check in, ask how the platform is working for them, and identify who the new internal champion should be. Ask if they'd be willing to be a reference for prospects you meet at this event.</div>
+    <div class="card-tags">
+      <span class="tag tag-client">Existing Client</span>
+      <span class="tag tag-key">Relationship Reset</span>
+      <span class="tag tag-key">8 Attendees</span>
+    </div>
+  </div>
+
+</div>
+
+<div class="no-results" id="noResults">No matches found. Try a different name or organization.</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-text">Resonance · NYSAFAH 2026 Conference Guide · resonancehq.io</div>
+  <a class="footer-cta" href="https://resonancehq.io" target="_blank">resonancehq.io →</a>
+</div>
+
+</div><!-- /tab-guide -->
+
+<!-- ═══ TAB: MY LOG ═══ -->
+<div class="tab-page" id="tab-log">
+
+  <div class="log-header">
+    <div class="log-header-title">My <em style="color:var(--teal);font-style:italic">Contacts</em></div>
+    <button class="btn-export" onclick="openExport()">📋 Export Summary</button>
+  </div>
+
+  <div class="log-filter-bar" id="logFilterBar">
+    <button class="filter-btn active" onclick="setLogFilter('all', this)">All</button>
+    <button class="filter-btn" onclick="setLogFilter('demo', this)">📅 Demo Scheduled</button>
+    <button class="filter-btn" onclick="setLogFilter('send', this)">📧 Send Info</button>
+    <button class="filter-btn" onclick="setLogFilter('follow', this)">🔁 Follow Up</button>
+    <button class="filter-btn" onclick="setLogFilter('hot', this)">🔥 Hot</button>
+    <button class="filter-btn" onclick="setLogFilter('nofit', this)">❌ Not a Fit</button>
+  </div>
+
+  <div class="log-empty" id="logEmpty">
+    <div class="log-empty-icon">👋</div>
+    <div class="log-empty-title">No contacts yet</div>
+    <div class="log-empty-sub">Go to the Guide tab, tap "Spoke to" on anyone you connect with,<br>and they'll appear here with your notes.</div>
+  </div>
+
+  <div class="log-cards" id="logCards"></div>
+
+  <div class="footer">
+    <div class="footer-text">Resonance · NYSAFAH 2026 · resonancehq.io</div>
+  </div>
+
+</div><!-- /tab-log -->
+
+<!-- EXPORT MODAL -->
+<div class="modal-overlay" id="exportModal">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title">
+      Post-Conference Summary
+      <button class="modal-close" onclick="closeExport()">✕</button>
+    </div>
+    <div class="modal-body" id="exportBody"></div>
+    <button class="btn-copy" onclick="copyExport()">Copy to Clipboard</button>
+  </div>
+</div>
+
+<!-- DRAFT MODAL -->
+<div class="draft-modal-overlay" id="draftModal">
+  <div class="draft-modal">
+    <div class="draft-handle"></div>
+    <div class="draft-modal-title">
+      <span>Draft for </span>
+      <button class="modal-close" onclick="closeDraft()">✕</button>
+    </div>
+    <div class="draft-tabs">
+      <button class="draft-tab active" data-tab="email" onclick="setDraftTab('email')">📧 Email</button>
+      <button class="draft-tab" data-tab="linkedin" onclick="setDraftTab('linkedin')">💬 LI Message</button>
+      <button class="draft-tab" data-tab="connect" onclick="setDraftTab('connect')">➕ Connect Request</button>
+    </div>
+    <div class="draft-content" id="draftContent" contenteditable="true" spellcheck="true"></div>
+    <div class="draft-edit-hint">✏️ tap to edit before copying</div>
+    <div class="draft-actions">
+      <button class="btn-copy-draft" onclick="copyDraft()">Copy</button>
+      <button class="btn-copy-li" onclick="copyLiDraft()">Copy + open LinkedIn</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+  // ── THEME ──
+  const THEME_KEY = 'resonance_theme';
+  const STORE_KEY = 'resonance_nysafah_contacts';
+
+  function applyTheme(mode) {
+    const knob = document.getElementById('themeKnob');
+    if (mode === 'light') {
+      document.documentElement.classList.add('light');
+      document.body.classList.add('light');
+      if (knob) knob.textContent = '☀️';
+    } else {
+      document.documentElement.classList.remove('light');
+      document.body.classList.remove('light');
+      if (knob) knob.textContent = '🌙';
+    }
+  }
+
+  function toggleTheme() {
+    const isLight = document.documentElement.classList.contains('light');
+    const next = isLight ? 'dark' : 'light';
+    try { localStorage.setItem(THEME_KEY, next); } catch(e) {}
+    applyTheme(next);
+  }
+
+  // ── STATE ──
+  let activeFilter = 'all';
+  let activeLogFilter = 'all';
+  let contacts = {};
+
+  // ── LOAD from localStorage ──
+  function loadContacts() {
+    try {
+      const raw = localStorage.getItem(STORE_KEY);
+      if (raw) contacts = JSON.parse(raw);
+    } catch(e) { contacts = {}; }
+  }
+
+  // ── SAVE to localStorage ──
+  function saveContacts() {
+    try {
+      localStorage.setItem(STORE_KEY, JSON.stringify(contacts));
+    } catch(e) {}
+  }
+
+  // ── TAB SWITCHING ──
+  function switchTab(tab, btn) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-page').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + tab).classList.add('active');
+    if (tab === 'log') renderLog();
+  }
+
+  // ── ASSIGN UNIQUE IDs TO CARDS ──
+  function assignCardIds() {
+    document.querySelectorAll('.card').forEach((card, i) => {
+      if (!card.id) card.id = 'card-' + i;
+    });
+  }
+
+  // ── INJECT TRACKING UI INTO EACH CARD ──
+  function injectTracking() {
+    document.querySelectorAll('.card').forEach(card => {
+      if (card.querySelector('.track-bar')) return; // already injected
+      const id = card.id;
+      const name = card.querySelector('.card-name') ? card.querySelector('.card-name').textContent.replace(' ✓','') : 'Unknown';
+      const org = card.querySelector('.card-org') ? card.querySelector('.card-org').textContent : '';
+      const tier = card.dataset.tier || '';
+
+      const trackBar = document.createElement('div');
+      trackBar.className = 'track-bar';
+      trackBar.innerHTML = `
+        <button class="btn-spoke" id="spoke-${id}" onclick="toggleSpoke('${id}', '${escStr(name)}', '${escStr(org)}', '${tier}')">
+          <span>👋</span> Spoke to
+        </button>
+        <select class="action-select" id="action-${id}" onchange="saveAction('${id}')">
+          <option value="">— Next action —</option>
+          <option value="demo">📅 Demo Scheduled</option>
+          <option value="send">📧 Send Info</option>
+          <option value="follow">🔁 Follow Up</option>
+          <option value="hot">🔥 Hot</option>
+          <option value="nofit">❌ Not a Fit</option>
+        </select>
+        <span class="track-timestamp" id="ts-${id}"></span>
+      `;
+
+      const notesWrap = document.createElement('div');
+      notesWrap.style.width = '100%';
+      notesWrap.innerHTML = `
+        <textarea class="track-notes" id="notes-${id}" placeholder="Quick note — what did they say? What's the context?" rows="2" oninput="showSave('${id}')"></textarea>
+        <div style="display:flex;justify-content:flex-end;margin-top:6px;">
+          <button class="btn-save-note" id="save-${id}" onclick="saveNote('${id}')">Save note</button>
+        </div>
+      `;
+
+      card.appendChild(trackBar);
+      card.appendChild(notesWrap);
+
+      // Restore state if exists
+      if (contacts[id]) {
+        restoreCardState(id);
+      }
+    });
+  }
+
+  function escStr(s) { return s.replace(/'/g, "\\'").replace(/"/g, '&quot;'); }
+
+  function restoreCardState(id) {
+    const c = contacts[id];
+    if (!c) return;
+    const card = document.getElementById(id);
+    if (!card) return;
+
+    if (c.spoke) {
+      card.classList.add('contacted');
+      const btn = document.getElementById('spoke-' + id);
+      if (btn) { btn.classList.add('spoke'); btn.innerHTML = '<span>✓</span> Spoke to'; }
+      const ts = document.getElementById('ts-' + id);
+      if (ts && c.time) ts.textContent = formatTime(c.time);
+    }
+
+    const sel = document.getElementById('action-' + id);
+    if (sel && c.action) sel.value = c.action;
+
+    const notes = document.getElementById('notes-' + id);
+    if (notes && c.notes) {
+      notes.value = c.notes;
+      notes.classList.add('visible');
+    }
+  }
+
+  function formatTime(iso) {
+    const d = new Date(iso);
+    return d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+  }
+
+  // ── TOGGLE SPOKE ──
+  function toggleSpoke(id, name, org, tier) {
+    const card = document.getElementById(id);
+    const btn = document.getElementById('spoke-' + id);
+    const notes = document.getElementById('notes-' + id);
+    const ts = document.getElementById('ts-' + id);
+
+    if (!contacts[id]) contacts[id] = { name, org, tier };
+
+    if (contacts[id].spoke) {
+      // Unmark
+      contacts[id].spoke = false;
+      card.classList.remove('contacted');
+      btn.classList.remove('spoke');
+      btn.innerHTML = '<span>👋</span> Spoke to';
+      if (ts) ts.textContent = '';
+      if (notes) notes.classList.remove('visible');
+    } else {
+      // Mark
+      contacts[id].spoke = true;
+      contacts[id].time = new Date().toISOString();
+      contacts[id].day = currentDay;
+      contacts[id].name = name;
+      contacts[id].org = org;
+      contacts[id].tier = tier;
+      card.classList.add('contacted');
+      btn.classList.add('spoke');
+      btn.innerHTML = '<span>✓</span> Spoke to';
+      if (ts) ts.textContent = formatTime(contacts[id].time);
+      if (notes) notes.classList.add('visible');
+    }
+
+    saveContacts();
+    updateContactedCount();
+  }
+
+  // ── SAVE ACTION ──
+  function saveAction(id) {
+    const sel = document.getElementById('action-' + id);
+    if (!contacts[id]) contacts[id] = {};
+    contacts[id].action = sel.value;
+    saveContacts();
+  }
+
+  // ── SHOW SAVE BUTTON ──
+  function showSave(id) {
+    const btn = document.getElementById('save-' + id);
+    if (btn) btn.classList.add('visible');
+  }
+
+  // ── SAVE NOTE ──
+  function saveNote(id) {
+    const notes = document.getElementById('notes-' + id);
+    const btn = document.getElementById('save-' + id);
+    if (!contacts[id]) contacts[id] = {};
+    contacts[id].notes = notes ? notes.value : '';
+    saveContacts();
+    if (btn) {
+      btn.textContent = 'Saved ✓';
+      btn.style.background = 'var(--teal)';
+      setTimeout(() => {
+        btn.textContent = 'Save note';
+        btn.classList.remove('visible');
+      }, 1500);
+    }
+  }
+
+  // ── UPDATE CONTACTED COUNT ──
+  function updateContactedCount() {
+    const count = Object.values(contacts).filter(c => c.spoke).length;
+    const el = document.getElementById('contactedCount');
+    const badge = document.getElementById('log-count');
+    if (el) el.textContent = count;
+    if (badge) badge.textContent = count;
+  }
+
+  // ── ACTION LABEL ──
+  function actionLabel(a) {
+    const map = { demo:'📅 Demo Scheduled', send:'📧 Send Info', follow:'🔁 Follow Up', hot:'🔥 Hot', nofit:'❌ Not a Fit' };
+    return map[a] || '';
+  }
+
+  function actionClass(a) {
+    const map = { demo:'action-demo', send:'action-send', follow:'action-follow', hot:'action-hot', nofit:'action-nofit' };
+    return map[a] || '';
+  }
+
+  function tierLabel(t) {
+    const map = { 'tier-1':'🔴 Tier 1', 'tier-2':'🟠 Tier 2', 'tier-3':'🟢 Tier 3', 'tier-ex':'⭐ Client' };
+    return map[t] || t;
+  }
+
+  // ── RENDER LOG ──
+  function renderLog() {
+    const container = document.getElementById('logCards');
+    const empty = document.getElementById('logEmpty');
+    container.innerHTML = '';
+
+    const spoken = Object.entries(contacts).filter(([id, c]) => c.spoke);
+
+    if (spoken.length === 0) {
+      empty.style.display = 'block';
+      container.style.display = 'none';
+      return;
+    }
+
+    // Filter by action
+    const filtered = activeLogFilter === 'all'
+      ? spoken
+      : spoken.filter(([id, c]) => c.action === activeLogFilter);
+
+    if (filtered.length === 0) {
+      empty.style.display = 'block';
+      empty.querySelector('.log-empty-title').textContent = 'No contacts with this filter';
+      empty.querySelector('.log-empty-sub').textContent = 'Try selecting a different action type.';
+      container.style.display = 'none';
+      return;
+    }
+
+    empty.style.display = 'none';
+    container.style.display = 'grid';
+
+    // Sort: hot first, then demo, then others
+    const order = { hot:0, demo:1, send:2, follow:3, '':4, nofit:5 };
+    filtered.sort((a,b) => (order[a[1].action||''] || 4) - (order[b[1].action||''] || 4));
+
+    filtered.forEach(([id, c]) => {
+      const div = document.createElement('div');
+      div.className = 'log-card';
+      div.innerHTML = `
+        <div class="log-card-top">
+          <div>
+            <div class="log-card-name">${c.name || 'Unknown'}</div>
+            <div class="log-card-org">${c.org || ''}</div>
+          </div>
+          <button class="btn-spoke spoke" style="font-size:11px;padding:5px 10px;" onclick="toggleSpoke('${id}','${escStr(c.name||'')}','${escStr(c.org||'')}','${c.tier||''}');renderLog();">Remove</button>
+        </div>
+        <div class="log-card-meta">
+          <span class="tag tag-key">${tierLabel(c.tier)}</span>
+          ${c.action ? `<span class="action-pill ${actionClass(c.action)}">${actionLabel(c.action)}</span>` : ''}
+          ${c.time ? `<span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted)">⏱ ${formatTime(c.time)}</span>` : ''}
+        </div>
+        ${c.notes ? `<div class="log-card-notes">"${c.notes}"</div>` : ''}
+        <div class="log-card-btns">
+          <button class="btn-draft" onclick="openDraft('${id}')">✍️ Draft follow-up</button>
+          <button class="btn-share-li" onclick="openConnectDraft('${id}')">➕ Connect msg</button>
+          ${c.day ? `<span class="day-badge">Day ${c.day}</span>` : ''}
+        </div>
+      `;
+      container.appendChild(div);
+    });
+  }
+
+  // ── LOG FILTER ──
+  function setLogFilter(f, btn) {
+    activeLogFilter = f;
+    document.querySelectorAll('#logFilterBar .filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderLog();
+  }
+
+  // ── EXPORT ──
+  function openExport() {
+    const spoken = Object.entries(contacts).filter(([id, c]) => c.spoke);
+    if (spoken.length === 0) {
+      alert('No contacts logged yet.');
+      return;
+    }
+
+    const order = { hot:0, demo:1, send:2, follow:3, '':4, nofit:5 };
+    spoken.sort((a,b) => (order[a[1].action||''] || 4) - (order[b[1].action||''] || 4));
+
+    const lines = ['RESONANCE — NYSAFAH 2026 CONTACT LOG', '=' .repeat(40), ''];
+    spoken.forEach(([id, c]) => {
+      lines.push(`▸ ${c.name || 'Unknown'}`);
+      lines.push(`  ${c.org || ''}`);
+      if (c.action) lines.push(`  Next: ${actionLabel(c.action)}`);
+      if (c.notes) lines.push(`  Notes: ${c.notes}`);
+      if (c.time) lines.push(`  Time: ${formatTime(c.time)}`);
+      lines.push('');
+    });
+
+    lines.push('=' .repeat(40));
+    lines.push(`Total contacts: ${spoken.length}`);
+    lines.push(`Generated: ${new Date().toLocaleString()}`);
+
+    document.getElementById('exportBody').textContent = lines.join('\n');
+    document.getElementById('exportModal').classList.add('open');
+  }
+
+  function closeExport() {
+    document.getElementById('exportModal').classList.remove('open');
+  }
+
+  function copyExport() {
+    const text = document.getElementById('exportBody').textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.querySelector('.btn-copy');
+      btn.textContent = '✓ Copied!';
+      setTimeout(() => { btn.textContent = 'Copy to Clipboard'; }, 2000);
+    });
+  }
+
+  // ── FILTER CARDS ──
+  function setFilter(tier, btn) {
+    activeFilter = tier;
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.classList.remove('active','active-t1','active-t2','active-t3','active-ex');
+    });
+    if (tier === 'all') btn.classList.add('active');
+    else if (tier === 'tier-1') btn.classList.add('active-t1');
+    else if (tier === 'tier-2') btn.classList.add('active-t2');
+    else if (tier === 'tier-3') btn.classList.add('active-t3');
+    else if (tier === 'tier-ex') btn.classList.add('active-ex');
+    else btn.classList.add('active');
+    filterCards();
+  }
+
+  function filterCards() {
+    const query = (document.getElementById('searchInput')?.value || '').toLowerCase().trim();
+    let visibleTotal = 0;
+    let counts = { 'tier-1': 0, 'tier-2': 0, 'tier-3': 0, 'tier-ex': 0 };
+
+    document.querySelectorAll('.card').forEach(card => {
+      const tier = card.dataset.tier;
+      const name = (card.dataset.name || '').toLowerCase();
+      const org = (card.dataset.org || '').toLowerCase();
+      const text = name + ' ' + org;
+      const isContacted = card.classList.contains('contacted');
+
+      const matchesTier = activeFilter === 'all'
+        || tier === activeFilter
+        || (activeFilter === 'contacted' && isContacted);
+      const matchesSearch = !query || text.includes(query);
+
+      if (matchesTier && matchesSearch) {
+        card.classList.remove('hidden');
+        visibleTotal++;
+        if (counts[tier] !== undefined) counts[tier]++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    ['tier-1','tier-2','tier-3','tier-ex'].forEach(t => {
+      const header = document.getElementById('section-' + t);
+      const cards = document.getElementById('cards-' + t);
+      if (header && cards) {
+        const visible = activeFilter === 'all' || activeFilter === t || activeFilter === 'contacted';
+        const hasCards = counts[t] > 0;
+        header.style.display = (visible && hasCards) ? '' : 'none';
+        cards.style.display = (visible && hasCards) ? '' : 'none';
+      }
+    });
+
+    const totalEl = document.getElementById('totalCount');
+    if (totalEl) totalEl.textContent = visibleTotal;
+
+    const t1el = document.getElementById('count-t1');
+    const t2el = document.getElementById('count-t2');
+    const t3el = document.getElementById('count-t3');
+    const texel = document.getElementById('count-ex');
+    if (t1el) t1el.textContent = counts['tier-1'] + ' groups';
+    if (t2el) t2el.textContent = counts['tier-2'] + ' orgs';
+    if (t3el) t3el.textContent = counts['tier-3'] + ' orgs';
+    if (texel) texel.textContent = counts['tier-ex'] + ' client';
+
+    const noRes = document.getElementById('noResults');
+    if (noRes) noRes.style.display = visibleTotal === 0 ? 'block' : 'none';
+  }
+
+  function openConnectDraft(id) {
+    const c = contacts[id];
+    if (!c) return;
+    draftContact = { id, ...c };
+    activeDraftTab = 'connect';
+    renderDraftTabs();
+    renderDraft();
+    document.getElementById('draftModal').classList.add('open');
+    document.querySelector('.draft-modal-title span').textContent = 'Draft for ' + (c.name || 'Contact');
+  }
+
+  // ── DAY TRACKING ──
+  let currentDay = parseInt(localStorage.getItem('resonance_day') || '1');
+  function toggleDay() {
+    currentDay = currentDay === 1 ? 2 : 1;
+    try { localStorage.setItem('resonance_day', currentDay); } catch(e) {}
+    const el = document.getElementById('dayLabel');
+    if (el) el.textContent = currentDay;
+  }
+
+  // ── SORT ──
+  let sortByContacted = false;
+  function toggleSort() {
+    sortByContacted = !sortByContacted;
+    const lbl = document.getElementById('sortLabel');
+    if (lbl) lbl.textContent = sortByContacted ? 'Contacted' : 'Tier';
+    const sections = ['tier-1','tier-2','tier-3','tier-ex'];
+    if (sortByContacted) {
+      sections.forEach(t => {
+        const grid = document.getElementById('cards-' + t);
+        if (!grid) return;
+        const cards = Array.from(grid.querySelectorAll('.card'));
+        cards.sort((a,b) => (b.classList.contains('contacted') ? 1 : 0) - (a.classList.contains('contacted') ? 1 : 0));
+        cards.forEach(c => grid.appendChild(c));
+      });
+    } else {
+      // restore original order via re-init — just reload order from data-name alpha
+      sections.forEach(t => {
+        const grid = document.getElementById('cards-' + t);
+        if (!grid) return;
+        const cards = Array.from(grid.querySelectorAll('.card'));
+        cards.sort((a,b) => (a.dataset.name||'').localeCompare(b.dataset.name||''));
+        cards.forEach(c => grid.appendChild(c));
+      });
+    }
+  }
+
+  // ── COPY EMAIL ──
+  function copyEmail(email) {
+    navigator.clipboard.writeText(email).then(() => showToast('Email copied!')).catch(() => showToast('Tap to copy: ' + email));
+  }
+
+  // ── TOAST ──
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2000);
+  }
+
+  // ── PITCH TOGGLE ──
+  function togglePitch(id) {
+    const body = document.getElementById('pitch-' + id);
+    if (!body) return;
+    body.classList.toggle('open');
+    const btn = document.getElementById('pitchbtn-' + id);
+    if (btn) btn.textContent = body.classList.contains('open') ? '▲ Hide quick pitch' : '▼ Quick pitch';
+  }
+
+  // ── DRAFT MODAL ──
+  let draftContact = null;
+  let activeDraftTab = 'email';
+
+  function openDraft(id) {
+    const c = contacts[id];
+    if (!c) return;
+    draftContact = { id, ...c };
+    activeDraftTab = 'email';
+    renderDraftTabs();
+    renderDraft();
+    document.getElementById('draftModal').classList.add('open');
+    document.querySelector('.draft-modal-title span').textContent = c.name || 'Contact';
+  }
+
+  function closeDraft() {
+    document.getElementById('draftModal').classList.remove('open');
+  }
+
+  function renderDraftTabs() {
+    document.querySelectorAll('.draft-tab').forEach(t => {
+      t.classList.toggle('active', t.dataset.tab === activeDraftTab);
+    });
+  }
+
+  function setDraftTab(tab) {
+    activeDraftTab = tab;
+    renderDraftTabs();
+    renderDraft();
+  }
+
+  function renderDraft() {
+    const c = draftContact;
+    if (!c) return;
+    const name = (c.name || 'there').split(' ')[0];
+    const org = c.org || 'your organization';
+    const notes = c.notes ? `\n\nWhen we spoke, you mentioned: "${c.notes}"` : '';
+    const actionMap = {
+      demo: 'scheduling that demo',
+      send: 'sending over more information',
+      follow: 'following up',
+      hot: 'connecting further',
+      nofit: 'staying in touch'
+    };
+    const nextStep = actionMap[c.action] || 'connecting further';
+
+    const email = `Subject: Great connecting at NYSAFAH — Resonance
+
+Hi ${name},
+
+Really enjoyed speaking with you at NYSAFAH today. It was great learning more about the work happening at ${org}.${notes}
+
+As I mentioned, Resonance is purpose-built for programs like yours — household tracking, URA compliance, right-to-return management, and HUD audit trails in one platform. We're already working with teams running RAD, PACT, and Section 18 programs at scale.
+
+I'd love to set up a 20-minute walkthrough so you can see exactly what it looks like on a live program. Does next week work for a quick call?
+
+Best,
+Ray
+Resonance | resonancehq.io`;
+
+    const linkedin = `Hi ${name} — really enjoyed our conversation at NYSAFAH today. The work you're doing at ${org} is exactly the kind of program Resonance was built for. Would love to stay in touch and follow up on what we discussed — happy to set up a quick walkthrough whenever works for you.`;
+
+    const liRequest = `Hi ${name} — great meeting you at NYSAFAH 2026! I'm Ray from Resonance — we build operational software for RAD, PACT, and Section 18 relocation programs. Enjoyed our conversation and would love to connect.`;
+
+    const content = {
+      email,
+      linkedin,
+      connect: liRequest
+    };
+
+    document.getElementById('draftContent').textContent = content[activeDraftTab] || email;
+  }
+
+  function copyDraft() {
+    const el = document.getElementById('draftContent');
+    const text = el.innerText || el.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.querySelector('.btn-copy-draft');
+      btn.textContent = '✓ Copied!';
+      setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+    });
+  }
+
+  function copyLiDraft() {
+    const el = document.getElementById('draftContent');
+    const text = el.innerText || el.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      showToast('Copied! Opening LinkedIn…');
+      setTimeout(() => {
+        const name = (draftContact && draftContact.name) ? encodeURIComponent(draftContact.name) : '';
+        window.open('https://www.linkedin.com/search/results/people/?keywords=' + name, '_blank');
+      }, 800);
+    }).catch(() => showToast('Copy failed — try the Copy button'));
+  }
+
+  // ── INJECT QUICK PITCH into cards ──
+  const PITCHES = {
+    'tier-1': [
+      '<strong>Hook:</strong> "We\'re the operational layer housing authorities use to manage relocation at scale — household tracking, URA notices, right-to-return, and HUD audit trails in one place."',
+      '<strong>Pain:</strong> "Most programs are still running this on spreadsheets. When something goes wrong in a HUD audit, the documentation gap is where the liability lives."',
+      '<strong>Ask:</strong> "Worth 20 minutes to see what it looks like on a live program?"'
+    ],
+    'tier-2': [
+      '<strong>Hook:</strong> "Resonance is purpose-built for developers managing RAD and PACT relocation — household tracking, phasing coordination, and compliance documentation all in one platform."',
+      '<strong>Pain:</strong> "Most developers are coordinating between the HA, the RSP, and their own team across email and spreadsheets. We eliminate that."',
+      '<strong>Ask:</strong> "Who on your team owns relocation coordination? That\'s who needs to see a demo."'
+    ],
+    'tier-3': [
+      '<strong>Hook:</strong> "When your clients ask how to manage relocation compliance operationally, Resonance is the answer — URA-ready documentation, household tracking, HUD audit trails."',
+      '<strong>Referral angle:</strong> "We\'re working with several RAD/PACT developers already. Happy to be a resource for your clients who are navigating this."',
+      '<strong>Ask:</strong> "Do you have clients right now who are struggling with relocation documentation?"'
+    ],
+    'tier-ex': [
+      '<strong>This is an existing client.</strong> Do not pitch.',
+      'Check in: "How is the platform working for your team day-to-day?"',
+      'Ask: "Would you be willing to be a reference for a prospect I met here today?"'
+    ]
+  };
+
+  function injectPitches() {
+    document.querySelectorAll('.card').forEach(card => {
+      if (card.querySelector('.pitch-toggle')) return;
+      const tier = card.dataset.tier;
+      const bullets = PITCHES[tier];
+      if (!bullets) return;
+      const id = card.id;
+      const toggle = document.createElement('button');
+      toggle.className = 'pitch-toggle';
+      toggle.id = 'pitchbtn-' + id;
+      toggle.textContent = '▼ Quick pitch';
+      toggle.onclick = () => togglePitch(id);
+      const body = document.createElement('div');
+      body.className = 'pitch-body';
+      body.id = 'pitch-' + id;
+      body.innerHTML = '<ul>' + bullets.map(b => `<li>${b}</li>`).join('') + '</ul>';
+      card.appendChild(toggle);
+      card.appendChild(body);
+    });
+  }
+
+  // ── PATCH injectTracking email buttons to copy instead of open ──
+  function patchEmailButtons() {
+    document.querySelectorAll('.btn-email').forEach(btn => {
+      const href = btn.getAttribute('href');
+      if (href && href.startsWith('mailto:')) {
+        const email = href.replace('mailto:', '');
+        btn.removeAttribute('href');
+        btn.style.cursor = 'pointer';
+        btn.onclick = (e) => { e.preventDefault(); copyEmail(email); };
+        btn.title = 'Copy email: ' + email;
+      }
+    });
+  }
+
+  // ── INIT ──
+  window.addEventListener('DOMContentLoaded', () => {
+    // Apply saved theme
+    try {
+      const saved = localStorage.getItem(THEME_KEY);
+      applyTheme(saved === 'light' ? 'light' : 'dark');
+    } catch(e) { applyTheme('dark'); }
+
+    // Restore day
+    const dayEl = document.getElementById('dayLabel');
+    if (dayEl) dayEl.textContent = currentDay;
+
+    loadContacts();
+    assignCardIds();
+    injectTracking();
+    injectPitches();
+    patchEmailButtons();
+    filterCards();
+    updateContactedCount();
+  });
+</script>
+</body>
+</html>
