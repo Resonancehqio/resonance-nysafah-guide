@@ -2319,12 +2319,12 @@
     if (!SHEETS_URL || SHEETS_URL === 'YOUR_APPS_SCRIPT_URL') return;
     setSyncStatus('syncing');
     try {
-      const res = await fetch(SHEETS_URL, {
+      // no-cors avoids CORS preflight; Apps Script still receives the body
+      await fetch(SHEETS_URL, {
         method: 'POST',
+        mode: 'no-cors',
         body: JSON.stringify({ token: SHEETS_TOKEN, contacts })
       });
-      const json = await res.json();
-      if (json.error) throw new Error(json.error);
       setSyncStatus('synced');
       setTimeout(() => setSyncStatus('idle'), 3000);
     } catch(e) {
@@ -2335,7 +2335,8 @@
   async function loadFromSheets() {
     if (!SHEETS_URL || SHEETS_URL === 'YOUR_APPS_SCRIPT_URL') return;
     try {
-      const res = await fetch(`${SHEETS_URL}?token=${SHEETS_TOKEN}`);
+      const url = `${SHEETS_URL}?token=${SHEETS_TOKEN}`;
+      const res = await fetch(url, { redirect: 'follow' });
       const json = await res.json();
       if (json.contacts && Object.keys(json.contacts).length > 0) {
         contacts = Object.assign({}, contacts, json.contacts);
