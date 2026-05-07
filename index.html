@@ -606,6 +606,36 @@
 
   .approach strong { color: var(--teal); font-weight: 600; }
 
+  /* ── CARD ABOUT ── */
+  .card-about {
+    display: none;
+    padding: 10px 12px;
+    border-top: 1px solid var(--border);
+    background: var(--bg3);
+  }
+  .card-about.open { display: block; }
+  .card-about-text {
+    font-size: 12px;
+    color: var(--text2);
+    line-height: 1.55;
+    margin: 0 0 7px 0;
+  }
+  .card-about-link {
+    font-size: 11px;
+    color: var(--teal);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.01em;
+  }
+  .card-about-link:hover { text-decoration: underline; }
+  .card-left { cursor: pointer; user-select: none; }
+  .card-about-toggle {
+    font-size: 10px;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    margin-top: 2px;
+  }
+
   /* ── TAGS ── */
   .card-tags {
     display: flex; gap: 5px;
@@ -2256,6 +2286,48 @@
   const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxKlYSeAcnTy9ywjKyJ2V415EogF7j0N9rJPbg0JtTAMLBDHRRyxUTFQ5unLJMp6dE/exec';
   const SHEETS_TOKEN = 'nysafah2026resonance';
 
+  const ORG_INFO = {
+    "ascendant": { website: "https://ascendant.nyc/", summary: "Nonprofit affordable developer exclusively focused on East/Central Harlem with 690 owned units and 1,500+ in pipeline. Uses LIHTC, Section 202, and city/state subsidies for permanent affordable rental housing." },
+    "breaking ground": { website: "https://www.breakingground.org/", summary: "NYC nonprofit developing and operating nearly 4,500 units of permanent supportive and affordable housing for homeless New Yorkers, plus 13,000+ served annually through outreach and transitional programs. Operates large mixed-subsidy buildings requiring tenant placement and compliance tracking." },
+    "brp": { website: "https://www.brpcompanies.com/", summary: "Vertically integrated NYC developer with $6.8B+ in transactions specializing in mixed-use affordable and market-rate multifamily across all five boroughs. Known for La Central in the South Bronx — a 1,000+ unit multi-phase mixed-income project with supportive housing." },
+    "camber": { website: "https://camberpg.com/", summary: "NYC affordable developer active across all five boroughs in new construction, preservation, senior housing, and supportive housing using LIHTC and tax-exempt bonds. Multi-phase Bronx developments and large portfolio acquisitions create ongoing resident tracking needs." },
+    "cassin": { website: "https://www.cassinllp.com/", summary: "Purchase, NY law firm with 30+ years representing lenders and developers in LIHTC, tax-exempt bond, and preservation financing across NY, TX, AZ, and DC. Primarily lender-side counsel on complex affordable housing closings." },
+    "cgmr": { website: "https://cgmrcompliance.com/", summary: "WBE-certified NYC compliance firm specializing in LIHTC lease-up, recertification, and ongoing compliance for developers, managers, and syndicators. Deep expertise in LIHTC, HUD, Section 8, and HOME regulations across mixed-income projects." },
+    "cohnreznick": { website: "https://www.cohnreznick.com/", summary: "National accounting and advisory firm with one of the country's largest affordable housing practices, serving 1,000+ developers, syndicators, and agencies annually across all 50 states. Provides LIHTC audits, market studies, and syndication advisory." },
+    "community builders": { website: "https://tcbinc.org/", summary: "One of the largest US nonprofit affordable housing developers with 10,000+ apartments in 14 states, developing mixed-income housing via LIHTC and Choice Neighborhoods. Choice Neighborhoods involvement makes complex multi-phase relocation compliance central to their work." },
+    "community preservation corporation": { website: "https://communityp.com/", summary: "Leading CDFI and one of the nation's largest multifamily housing finance organizations, having financed 225,000+ units through $14.4B in capital. Also a PACT development partner on major NYCHA rehabilitation projects requiring resident relocation compliance." },
+    "douglaston": { website: "https://www.douglastondevelopment.com/", summary: "Large NYC residential developer with 40+ year track record and $2B+ in development including thousands of affordable units using LIHTC, bonds, and public subsidies. Active pipeline of 100% affordable new construction across the Bronx and NYC." },
+    "enterprise": { website: "https://www.enterprisecommunity.org/", summary: "Leading national nonprofit intermediary investing $80.9B+ and helping create 1M+ affordable homes since 1982. Syndicates LIHTC equity and supports RAD, Choice Neighborhoods, and preservation programs nationally." },
+    "forsyth street": { website: "https://www.forsythstreet.com/", summary: "NYC specialty financial advisor having closed $5B+ in affordable housing transactions for public agencies and nonprofits. Structures LIHTC, RAD/PACT, and multi-source financings — clients routinely navigate resident relocation and compliance requirements." },
+    "guidehouse": { website: "https://guidehouse.com/", summary: "Global professional services firm advising HUD, Ginnie Mae, and state/local housing agencies on program design, operational improvement, and federal asset sales. Supports federally funded programs including RAD and Choice Neighborhoods." },
+    "hud": { website: "https://www.hud.gov/", summary: "Federal agency administering Public Housing, RAD, Section 8, HOME, CDBG, and Choice Neighborhoods programs. Sets the regulatory framework — including URA relocation requirements — for all major assisted housing programs." },
+    "kalel": { website: "https://www.kalelcompanies.com/", summary: "MBE-certified NYC developer with 4,000+ affordable units, more than half developed through NYCHA PACT. A participant in the PACT Renaissance Collaborative covering 16 Manhattan NYCHA developments — one of the clearest relocation compliance use cases in this room." },
+    "klein hornig": { website: "https://www.kleinhornig.com/", summary: "Mission-driven law firm representing syndicators, investors, and developers in LIHTC, RAD conversions, and tax-exempt bond financings nationally. Deep expertise in Section 42 compliance, Year 15 resyndications, and complex twinned LIHTC structures." },
+    "l+m development": { website: "https://lmdevpartners.com/", summary: "NYC affordable developer and investor with nearly 60,000 homes and $20B in total capitalization across 14 states. Major NYC projects include Sendero Verde (largest US Passive House multifamily) and Essex Crossing — multi-phase developments with layered compliance obligations." },
+    "lisc": { website: "https://www.lisc.org/", summary: "One of the largest CDFIs in the US, providing grants, loans, and LIHTC equity to community organizations in 40 cities and 2,100 rural counties. Active supporter of RAD and Choice Neighborhoods transactions requiring formal relocation plans." },
+    "mdg": { website: "http://mdgny.com/", summary: "NYC affordable housing-only contractor and developer, completing 980+ buildings and 23,500+ units since 1988. Specializes in occupied rehabilitation with phased in-building methods — resident tracking during rehab is a core operational challenge." },
+    "monadnock": { website: "https://monadnockdevelopment.com/", summary: "Leading NYC affordable developer with 8,000+ units and $2.9B in development. PACT partner in the Renaissance Collaborative (16 Manhattan NYCHA developments) and developer of large mixed-income projects like Compass Residences (1,374 units across multiple phases)." },
+    "nahro": { website: "https://www.nahro.org/", summary: "National advocacy and professional development association for public housing authorities administering HUD programs including Public Housing, Section 8, CDBG, and HOME. Member PHAs are front-line operators of RAD/PACT conversions and resident relocation programs." },
+    "nixon peabody": { website: "https://www.nixonpeabody.com/", summary: "National law firm with a Tier 1 LIHTC practice, representing developers, housing authorities, and investors in LIHTC, RAD/PACT, and HFA bond financings across complex NYC and national transactions. Clients routinely execute projects with resident relocation requirements." },
+    "nlha": { website: "https://hudnlha.com/", summary: "DC-based trade association representing developers, managers, and agencies in federally assisted rental housing, particularly HUD Section 8 programs. Shapes national policy on Section 8 renewals and RAD conversions." },
+    "novogradac": { website: "https://www.novoco.com/", summary: "National accounting firm and definitive authority on LIHTC compliance — provides audits, tenant file reviews, compliance monitoring, and publishes the standard LIHTC Property Compliance Handbook. Hosts three LIHTC conferences annually." },
+    "nyc hdc": { website: "https://www.nychdc.com/", summary: "Nation's largest municipal Housing Finance Agency, financing 200,000+ affordable units through $28B in bonds since 2003. Primary 4% LIHTC bond issuer for NYC and a key financing partner for NYCHA PACT projects." },
+    "nyc hpd": { website: "https://www.nyc.gov/site/hpd/index.page", summary: "Largest municipal housing agency in the US, financing and preserving affordable housing citywide through LIHTC awards, preservation loans, and Mitchell-Lama oversight. Administers PACT with NYCHA and sets lottery and relocation rules for all NYC affordable projects." },
+    "nyc mayor": { website: "https://www.nyc.gov/mayors-office/", summary: "NYC Mayor's Office sets citywide housing policy and directs HPD, HDC, and NYCHA programs. Overseeing a 10-year, $26B affordable housing capital plan targeting 500,000 units and recently relaunched the Just Home supportive housing initiative." },
+    "nyc public housing preservation trust": { website: "https://www.preservationtrust.org/", summary: "State-created public entity authorized to renovate 25,000 NYCHA apartments through bond financing while maintaining full public housing rights. Residents retain right to return and must vote to approve — occupied rehab requiring household-level tracking." },
+    "nycha": { website: "https://www.nyc.gov/site/nycha/index.page", summary: "Largest public housing authority in North America, owning 177,000+ apartments housing 335,000 residents. Administers PACT converting tens of thousands of units to Project-Based Section 8 through occupied multi-building campus rehabilitations — the most complex relocation compliance environment in the country." },
+    "nys hcr": { website: "https://hcr.ny.gov/", summary: "New York State's primary affordable housing finance and policy agency, administering the statewide 9% LIHTC program, 4% LIHTC/bond program via HFA, and HOME funds. Sets QAP compliance requirements governing tenant eligibility and income certification for all funded NYS projects." },
+    "pennrose": { website: "https://www.pennrose.com/", summary: "Philadelphia-based affordable developer with 27,000+ units across 350+ developments in 19 states over 50 years. Public housing revitalization work involving phased demolition and reconstruction creates direct need for HUD URA-compliant relocation management." },
+    "phipps": { website: "https://www.phippsny.org/", summary: "NYC's largest nonprofit affordable developer, founded 1905, with 10,500+ apartments developed or preserved across all five boroughs and 1,659+ more in construction. Sister org Phipps Neighborhoods runs 40+ community service programs." },
+    "pronto housing": { website: "https://www.prontohousing.com/", summary: "NYC-based SaaS platform for LIHTC tenant qualification, recertification, and compliance documentation, founded 2020. Serves property owners and managers — direct competitive landscape context for Resonance." },
+    "riseboro": { website: "https://riseboro.org/", summary: "Brooklyn nonprofit managing 3,100+ affordable units across 147 buildings in Bushwick and Ridgewood, focused on low-income families, seniors, formerly homeless individuals, and veterans. Develops new affordable housing using LIHTC with ongoing needs for eligibility and resident tracking." },
+    "rockabill": { website: "https://www.rockabill.com/", summary: "Hoboken NJ advisory and development firm that has partnered with nonprofits to preserve and build 14,000+ units of affordable and supportive housing in the NYC metro since 2007. Specializes in layered LIHTC and public subsidy structures for supportive housing." },
+    "settlement housing fund": { website: "https://www.settlementhousingfund.org/", summary: "NYC nonprofit developer with 8,900+ apartments across 69 projects and the first nonprofit selected to lead a NYCHA PACT rehabilitation (Harlem River Houses). Direct operator of occupied rehabilitation programs requiring resident tracking and compliance documentation." },
+    "tredway": { website: "https://www.tredway.com/", summary: "NYC developer founded 2021 with 5,600+ units in pipeline, acquiring and preserving LIHTC, Mitchell-Lama, and income-restricted properties. Phased rehabilitation of occupied affordable buildings requires resident notifications, recertification, and compliance management." },
+    "watervliet housing authority": { website: "https://www.watervliethousing.org/", summary: "Small upstate NY public housing authority (Albany County) administering ~215 apartments across 5 complexes plus Section 8 vouchers. Evaluating HUD modernization programs like RAD that would introduce relocation compliance requirements." },
+    "winn": { website: "https://www.winncompanies.com/", summary: "National affordable developer and property manager with 4,300 employees in 27 states managing a $5B portfolio of LIHTC, Section 8, and NYC Rent Stabilized properties. Large portfolios undergoing recertification, resyndication, or occupied rehab create ongoing compliance data needs." }
+  };
+
   function applyTheme(mode) {
     const knob = document.getElementById('themeKnob');
     if (mode === 'light') {
@@ -2401,6 +2473,37 @@
       // Restore state if exists
       if (contacts[id]) {
         restoreCardState(id);
+      }
+    });
+  }
+
+  // ── INJECT ABOUT PANELS ──
+  function injectAbout() {
+    document.querySelectorAll('.card').forEach(card => {
+      if (card.querySelector('.card-about')) return;
+      const orgKey = card.dataset.org || '';
+      const info = ORG_INFO[orgKey];
+      if (!info) return;
+
+      const aboutDiv = document.createElement('div');
+      aboutDiv.className = 'card-about';
+      let host = '';
+      try { host = new URL(info.website).hostname.replace(/^www\./, ''); } catch(e) { host = info.website; }
+      aboutDiv.innerHTML = `<p class="card-about-text">${info.summary}</p><a class="card-about-link" href="${info.website}" target="_blank" rel="noopener">${host} ↗</a>`;
+
+      const cardTop = card.querySelector('.card-top');
+      if (cardTop) cardTop.after(aboutDiv);
+
+      const cardLeft = card.querySelector('.card-left');
+      if (cardLeft) {
+        const toggle = document.createElement('div');
+        toggle.className = 'card-about-toggle';
+        toggle.textContent = 'ⓘ About';
+        cardLeft.appendChild(toggle);
+        cardLeft.addEventListener('click', () => {
+          const isOpen = aboutDiv.classList.toggle('open');
+          toggle.textContent = isOpen ? '↑ About' : 'ⓘ About';
+        });
       }
     });
   }
@@ -2947,6 +3050,7 @@ Resonance | resonancehq.io`;
     assignCardIds();
     await loadFromSheets(); // merge sheet data (no-op if URL not set or offline)
     injectTracking();
+    injectAbout();
     injectPitches();
     patchEmailButtons();
     filterCards();
