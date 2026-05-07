@@ -1,54 +1,50 @@
 // ── NYSAFAH Guide → Google Sheets Sync ──
-// Paste this entire file into Extensions > Apps Script in your Google Sheet,
-// then deploy as a web app (Execute as: Me, Anyone can access).
+// Paste this entire file into Extensions > Apps Script in your Google Sheet.
+// Deploy as web app: Execute as Me, Anyone can access.
+// After updating this code, go to Deploy > Manage deployments > Edit > New version > Deploy.
 
 const SHEET_TOKEN = 'nysafah2026resonance';
 
-function doPost(e) {
+function doGet(e) {
   try {
-    const payload = JSON.parse(e.postData.contents);
-    if (payload.token !== SHEET_TOKEN) return jsonResponse({ error: 'Unauthorized' });
+    const token = e.parameter.token || '';
+    if (token !== SHEET_TOKEN) return jsonResponse({ error: 'Unauthorized' });
 
-    const sheet = getOrCreateSheet();
-    const contacts = payload.contacts || {};
+    // Write mode — single contact update sent as URL params
+    if (e.parameter.write === '1') {
+      const id = e.parameter.id;
+      if (!id) return jsonResponse({ error: 'Missing id' });
 
-    // Build index: cardId → row number
-    const existing = sheet.getDataRange().getValues();
-    const rowIndex = {};
-    for (let i = 1; i < existing.length; i++) {
-      if (existing[i][0]) rowIndex[existing[i][0]] = i + 1;
-    }
+      const sheet = getOrCreateSheet();
+      const existing = sheet.getDataRange().getValues();
+      const rowIndex = {};
+      for (let i = 1; i < existing.length; i++) {
+        if (existing[i][0]) rowIndex[existing[i][0]] = i + 1;
+      }
 
-    for (const [id, c] of Object.entries(contacts)) {
       const row = [
         id,
-        c.name  || '',
-        c.org   || '',
-        c.tier  || '',
-        c.spoke ? 'Yes' : 'No',
-        c.time  || '',
-        c.day   || '',
-        c.action|| '',
-        c.notes || '',
+        e.parameter.name   || '',
+        e.parameter.org    || '',
+        e.parameter.tier   || '',
+        e.parameter.spoke === '1' ? 'Yes' : 'No',
+        e.parameter.time   || '',
+        e.parameter.day    || '',
+        e.parameter.action || '',
+        e.parameter.notes  || '',
         new Date().toISOString()
       ];
+
       if (rowIndex[id]) {
         sheet.getRange(rowIndex[id], 1, 1, row.length).setValues([row]);
       } else {
         sheet.appendRow(row);
       }
+
+      return jsonResponse({ success: true });
     }
 
-    return jsonResponse({ success: true, count: Object.keys(contacts).length });
-  } catch (err) {
-    return jsonResponse({ error: err.toString() });
-  }
-}
-
-function doGet(e) {
-  try {
-    if ((e.parameter.token || '') !== SHEET_TOKEN) return jsonResponse({ error: 'Unauthorized' });
-
+    // Read mode — return all contacts as JSON
     const sheet = getOrCreateSheet();
     if (sheet.getLastRow() < 2) return jsonResponse({ contacts: {} });
 
@@ -60,6 +56,7 @@ function doGet(e) {
       contacts[id] = { name, org, tier, spoke: spoke === 'Yes', time: time || '', day: day || 1, action: action || '', notes: notes || '' };
     }
     return jsonResponse({ contacts });
+
   } catch (err) {
     return jsonResponse({ error: err.toString() });
   }

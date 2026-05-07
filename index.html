@@ -2294,12 +2294,9 @@
     try {
       localStorage.setItem(STORE_KEY, JSON.stringify(contacts));
     } catch(e) {}
-    scheduleSheetsSync();
   }
 
   // ── GOOGLE SHEETS SYNC ──
-  let _syncTimer = null;
-
   function setSyncStatus(s) {
     const el = document.getElementById('syncStatus');
     if (!el) return;
@@ -2309,34 +2306,36 @@
     else { el.textContent = ''; }
   }
 
-  function scheduleSheetsSync() {
+  function syncContact(id) {
     if (!SHEETS_URL || SHEETS_URL === 'YOUR_APPS_SCRIPT_URL') return;
-    clearTimeout(_syncTimer);
-    _syncTimer = setTimeout(syncToSheets, 1500);
-  }
-
-  async function syncToSheets() {
-    if (!SHEETS_URL || SHEETS_URL === 'YOUR_APPS_SCRIPT_URL') return;
+    const c = contacts[id];
+    if (!c) return;
     setSyncStatus('syncing');
-    try {
-      // no-cors avoids CORS preflight; Apps Script still receives the body
-      await fetch(SHEETS_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: JSON.stringify({ token: SHEETS_TOKEN, contacts })
-      });
-      setSyncStatus('synced');
-      setTimeout(() => setSyncStatus('idle'), 3000);
-    } catch(e) {
-      setSyncStatus('error');
-    }
+    const p = new URLSearchParams({
+      token: SHEETS_TOKEN, write: '1', id,
+      name:   c.name   || '',
+      org:    c.org    || '',
+      tier:   c.tier   || '',
+      spoke:  c.spoke  ? '1' : '0',
+      time:   c.time   || '',
+      day:    String(c.day || 1),
+      action: c.action || '',
+      notes:  c.notes  || ''
+    });
+    fetch(`${SHEETS_URL}?${p}`)
+      .then(r => r.json())
+      .then(j => {
+        if (j.error) throw new Error(j.error);
+        setSyncStatus('synced');
+        setTimeout(() => setSyncStatus('idle'), 3000);
+      })
+      .catch(() => setSyncStatus('error'));
   }
 
   async function loadFromSheets() {
     if (!SHEETS_URL || SHEETS_URL === 'YOUR_APPS_SCRIPT_URL') return;
     try {
-      const url = `${SHEETS_URL}?token=${SHEETS_TOKEN}`;
-      const res = await fetch(url, { redirect: 'follow' });
+      const res = await fetch(`${SHEETS_URL}?token=${SHEETS_TOKEN}`);
       const json = await res.json();
       if (json.contacts && Object.keys(json.contacts).length > 0) {
         contacts = Object.assign({}, contacts, json.contacts);
@@ -2470,6 +2469,7 @@
     }
 
     saveContacts();
+    syncContact(id);
     updateContactedCount();
   }
 
@@ -2479,6 +2479,7 @@
     if (!contacts[id]) contacts[id] = {};
     contacts[id].action = sel.value;
     saveContacts();
+    syncContact(id);
   }
 
   // ── SHOW SAVE BUTTON ──
@@ -2494,6 +2495,7 @@
     if (!contacts[id]) contacts[id] = {};
     contacts[id].notes = notes ? notes.value : '';
     saveContacts();
+    syncContact(id);
     if (btn) {
       btn.textContent = 'Saved ✓';
       btn.style.background = 'var(--teal)';
