@@ -1090,6 +1090,68 @@
     .modal-overlay { align-items: center; padding: 20px; }
     .modal-handle { display: none; }
   }
+  /* ── FAB ADD BUTTON ── */
+  .fab-add {
+    position: fixed; bottom: 24px; right: 20px; z-index: 200;
+    width: 52px; height: 52px; border-radius: 50%;
+    background: var(--teal); color: #000;
+    font-size: 28px; font-weight: 300; line-height: 1;
+    border: none; cursor: pointer;
+    box-shadow: 0 4px 16px rgba(10,191,188,0.4);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .fab-add:active { opacity: 0.8; transform: scale(0.95); }
+
+  /* ── ADD MODAL ── */
+  .add-modal-backdrop {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.55); z-index: 300;
+  }
+  .add-modal-backdrop.open { display: block; }
+  .add-modal {
+    display: none; position: fixed; bottom: 0; left: 0; right: 0;
+    background: var(--bg2); border-radius: 16px 16px 0 0;
+    z-index: 400; padding: 0 0 32px;
+    max-height: 90vh; overflow-y: auto;
+    box-shadow: 0 -4px 32px rgba(0,0,0,0.3);
+  }
+  .add-modal.open { display: block; }
+  .add-modal-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 20px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .add-modal-title {
+    font-family: 'Fraunces', serif; font-size: 18px;
+    font-weight: 400; color: var(--text);
+  }
+  .add-modal-close {
+    background: none; border: none; color: var(--muted);
+    font-size: 18px; cursor: pointer; padding: 4px 8px;
+  }
+  .add-modal-body { padding: 16px 20px 0; display: flex; flex-direction: column; gap: 10px; }
+  .add-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em;
+    margin-bottom: 2px; display: block;
+  }
+  .add-input {
+    width: 100%; background: var(--bg3); border: 1px solid var(--border);
+    border-radius: 8px; padding: 10px 12px; color: var(--text);
+    font-family: 'Instrument Sans', sans-serif; font-size: 15px;
+    box-sizing: border-box;
+  }
+  .add-input:focus { border-color: rgba(10,191,188,0.4); outline: none; }
+  .add-textarea { resize: vertical; min-height: 72px; }
+  .add-modal-footer { padding: 16px 20px 0; }
+  .add-submit {
+    width: 100%; background: var(--teal); color: #000;
+    border: none; border-radius: 10px; padding: 14px;
+    font-family: 'Instrument Sans', sans-serif; font-size: 16px;
+    font-weight: 600; cursor: pointer;
+  }
+  .add-submit:active { opacity: 0.8; }
+  .tag-custom { background: rgba(10,191,188,0.12); color: var(--teal); }
 </style>
 </head>
 <body>
@@ -2502,12 +2564,45 @@
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
 
+<!-- ADD CONTACT FAB -->
+<button class="fab-add" id="fabAdd" onclick="openAddModal()" title="Add contact">+</button>
+
+<!-- ADD CONTACT MODAL -->
+<div class="add-modal-backdrop" id="addModalBackdrop" onclick="closeAddModal()"></div>
+<div class="add-modal" id="addModal">
+  <div class="add-modal-header">
+    <span class="add-modal-title">Add Contact</span>
+    <button class="add-modal-close" onclick="closeAddModal()">✕</button>
+  </div>
+  <div class="add-modal-body">
+    <label class="add-label">Name <span style="color:var(--tier1)">*</span></label>
+    <input class="add-input" id="addName" type="text" placeholder="First Last" />
+
+    <label class="add-label">Org <span style="color:var(--tier1)">*</span></label>
+    <input class="add-input" id="addOrg" type="text" placeholder="Company or Agency" />
+
+    <label class="add-label">Tier</label>
+    <select class="add-input" id="addTier">
+      <option value="tier-1">🔴 Tier 1 — Direct Buyer</option>
+      <option value="tier-2">🟠 Tier 2 — Developer</option>
+      <option value="tier-3">🟢 Tier 3 — Referral</option>
+    </select>
+
+    <label class="add-label">Notes / Approach</label>
+    <textarea class="add-input add-textarea" id="addNotes" placeholder="What's the context? What did they say?" rows="3"></textarea>
+  </div>
+  <div class="add-modal-footer">
+    <button class="add-submit" id="addSubmit" onclick="submitCustomCard()">Save Contact</button>
+  </div>
+</div>
+
 <script>
   // ── THEME ──
   const THEME_KEY = 'resonance_theme';
   const STORE_KEY = 'resonance_nysafah_contacts';
   const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxKlYSeAcnTy9ywjKyJ2V415EogF7j0N9rJPbg0JtTAMLBDHRRyxUTFQ5unLJMp6dE/exec';
   const SHEETS_TOKEN = 'nysafah2026resonance';
+  const CUSTOM_KEY = 'resonance_custom_cards';
 
   const ORG_INFO = {
     "ascendant": { website: "https://ascendant.nyc/", summary: "Nonprofit affordable developer exclusively focused on East/Central Harlem with 690 owned units and 1,500+ in pipeline. Uses LIHTC, Section 202, and city/state subsidies for permanent affordable rental housing." },
@@ -3259,6 +3354,102 @@ Resonance | resonancehq.io`;
     });
   }
 
+  // ── CUSTOM CARDS ──
+  let customCards = [];
+
+  function loadCustomCards() {
+    try {
+      const raw = localStorage.getItem(CUSTOM_KEY);
+      if (raw) customCards = JSON.parse(raw);
+    } catch(e) { customCards = []; }
+    customCards.forEach(def => renderCustomCard(def));
+  }
+
+  function saveCustomCards() {
+    try { localStorage.setItem(CUSTOM_KEY, JSON.stringify(customCards)); } catch(e) {}
+  }
+
+  function renderCustomCard(def) {
+    const container = document.getElementById('cards-tier-' + def.tier.replace('tier-',''));
+    if (!container) return;
+    const avatarClass = def.tier === 'tier-1' ? 'avatar-t1' : def.tier === 'tier-2' ? 'avatar-t2' : 'avatar-t3';
+    const initials = def.name.split(' ').slice(0,2).map(w => w[0]||'').join('').toUpperCase();
+    const orgKey = def.org.toLowerCase().replace(/[^a-z0-9 ]/g,'').trim();
+    const div = document.createElement('div');
+    div.className = `card ${def.tier}`;
+    div.dataset.tier = def.tier;
+    div.dataset.name = def.name.toLowerCase();
+    div.dataset.org = orgKey;
+    div.id = def.id;
+    div.innerHTML = `
+      <div class="card-top">
+        <div class="card-left">
+          <div class="avatar ${avatarClass}">${initials}</div>
+          <div>
+            <div class="card-name">${def.name}</div>
+            <div class="card-org">${def.org}</div>
+          </div>
+        </div>
+        <div class="card-actions">
+          <a class="btn-li" href="https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(def.name + ' ' + def.org)}" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+      ${def.notes ? `<div class="approach">${def.notes}</div>` : ''}
+      <div class="card-tags"><span class="tag tag-custom">+ Added by you</span></div>
+    `;
+    container.appendChild(div);
+  }
+
+  function openAddModal() {
+    document.getElementById('addModalBackdrop').classList.add('open');
+    document.getElementById('addModal').classList.add('open');
+    document.getElementById('addName').focus();
+  }
+
+  function closeAddModal() {
+    document.getElementById('addModalBackdrop').classList.remove('open');
+    document.getElementById('addModal').classList.remove('open');
+    document.getElementById('addName').value = '';
+    document.getElementById('addOrg').value = '';
+    document.getElementById('addNotes').value = '';
+    document.getElementById('addTier').value = 'tier-1';
+  }
+
+  function submitCustomCard() {
+    const name = document.getElementById('addName').value.trim();
+    const org  = document.getElementById('addOrg').value.trim();
+    const tier = document.getElementById('addTier').value;
+    const notes = document.getElementById('addNotes').value.trim();
+    if (!name || !org) {
+      document.getElementById('addName').style.borderColor = name ? '' : 'var(--tier1)';
+      document.getElementById('addOrg').style.borderColor  = org  ? '' : 'var(--tier1)';
+      return;
+    }
+    const id = 'custom-' + Date.now();
+    const def = { id, name, org, tier, notes };
+    customCards.push(def);
+    saveCustomCards();
+    renderCustomCard(def);
+    // mark as spoke + save note if notes provided
+    contacts[id] = { name, org, tier, spoke: false, custom: true, notes, time: '', day: currentDay, action: '' };
+    saveContacts();
+    syncContact(id);
+    // re-run tracking injection on new card
+    const card = document.getElementById(id);
+    if (card) {
+      assignCardIds();
+      injectTracking();
+      injectAbout();
+    }
+    filterCards();
+    updateContactedCount();
+    closeAddModal();
+    showToast(`${name} added`);
+  }
+
   // ── INIT ──
   window.addEventListener('DOMContentLoaded', async () => {
     try {
@@ -3269,9 +3460,10 @@ Resonance | resonancehq.io`;
     const dayEl = document.getElementById('dayLabel');
     if (dayEl) dayEl.textContent = currentDay;
 
-    loadContacts();      // fast: local state first
+    loadContacts();
+    loadCustomCards();   // render user-added cards before tracking injection
     assignCardIds();
-    await loadFromSheets(); // merge sheet data (no-op if URL not set or offline)
+    await loadFromSheets();
     injectTracking();
     injectAbout();
     injectPitches();
